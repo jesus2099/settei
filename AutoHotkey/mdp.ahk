@@ -6,7 +6,7 @@ login3 := StrSplit(login2, "\")[1] "\a" login
 
 ; -----------------------*-------------- fin var début macros -*--------------------------------------
 
-menu, tray, icon, shell32.dll, 105, 1
+menu, tray, icon, shell32.dll, 105
 menu, tray, tip, %login%`n%login3%`n%login2%
 
 ; !alt +shift ^ctrl #win
