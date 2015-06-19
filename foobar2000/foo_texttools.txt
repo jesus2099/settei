@@ -1,0 +1,8 @@
+﻿musicbrainz
+%tracknumber%. %title% - %artist% '('%length%')'
+
+full path
+%path%%filename_ext%
+
+track times
+%length%
