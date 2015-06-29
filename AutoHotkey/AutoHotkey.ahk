@@ -62,8 +62,8 @@ SC005::sendinput ’
 SC007::sendinput ‐
 #SC009::sendinput –
 #+SC009::sendinput —
-+SC00A::Ç
-+SC00B::À
++SC00A::sendinput Ç
++SC00B::sendinput À
 <^>!SC010::æ
 <^>!+SC010::Æ
 <^>!SC018::sendinput œ
@@ -86,8 +86,8 @@ $<^>!!::sendinput {u+0021}
 ^+SC007::Ⅵ
 ^+SC008::Ⅶ
 ^+SC009::Ⅷ
-^+SC00A::Ⅸ
-^+SC00B::Ⅹ
+^+SC00A::sendinput Ⅸ
+^+SC00B::sendinput Ⅹ
 ^+SC00C::Ⅺ
 ^+SC00D::Ⅻ
 ; trucs japonais (#WIN)
