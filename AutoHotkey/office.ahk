@@ -5,15 +5,28 @@
 
 menu, tray, icon, %programfiles% (x86)\Notes-852\notes.exe
 
+; ############
+; network init
+; ############
+
+if (RegExMatch(A_IPAddress1, "^192\.168\.1\.\d+$") > 0) {
+	if (A_IPAddress2 != "0.0.0.0") {
+		RunWait, "%programfiles%\Lenovo\HOTKEY\TpFnF5.exe"
+	}
+	Run, "%userprofile%\desktop\clip.lnk" ; vpn URL
+} else {
+	Run, "%appdata%\microsoft\windows\start menu\internet explorer.lnk" ; internet connection URL
+}
+
 ; ###################################
 ; win7 : BACKSPACE hack comme dans XP
 ; ###################################
 
 #IfWinActive, ahk_class CabinetWClass
 $backspace::
-	ControlGet renamestatus,Visible,,Edit1,A
+	ControlGet renamestatus, Visible, , Edit1, A
 	ControlGetFocus focussed, A
-	if (renamestatus!=1&&(focussed="DirectUIHWND3"||focussed="SysTreeView321")) {
+	if (renamestatus != 1 && (focussed = "DirectUIHWND3" || focussed = "SysTreeView321")) {
 		sendinput !{up}
 	} else {
 		sendinput {backspace}
@@ -22,19 +35,23 @@ $backspace::
 return
 
 #IfWinActive ahk_exe notes2.exe ;-------------------- LOTUS NOTES (rédaction)
+
 ^f:: ;rechercher
 	send !v
 	sleep 100
 	sendinput u
 	return
+
 ;^s:: ;(texte) souligné et vert
 ;	WinMenuSelectItem, , , texte, souligné
 ;	WinMenuSelectItem, , , texte, couleur, vert foncé
 ;	return
+
 ^r:: ;(texte) rayé et rouge
 	WinMenuSelectItem, , , texte, barré
 	WinMenuSelectItem, , , texte, couleur, rouge
 	return
+
 ^l::
 	sendinput ^s
 	currentkeydelay := A_KeyDelay
@@ -42,31 +59,35 @@ return
 	send !cy
 	setkeydelay currentkeydelay
 	return
+
 +^f:: ;FRANÇAIS(FR)
 	sendinput ^y
 	winwait ahk_class ibw:0, InfoBox DLL, 1
 	if not ErrorLevel {
 		coordmode, caret, window
-		mouseclick, left, A_CaretX+80, A_CaretY+120
+		mouseclick, left, A_CaretX + 80, A_CaretY + 120
 		winwait ahk_class ibw:2, InfoBox DLL, 1
 		if not ErrorLevel {
 			sendinput {home}g{up 3}{enter}{esc}
 		}
 	}
 	return
+
 +^e:: ;ENGLISH(UK)
 	sendinput ^y
 	winwait ahk_class ibw:0, InfoBox DLL, 1
 	if not ErrorLevel {
 		coordmode, caret, window
-		mouseclick, left, A_CaretX+80, A_CaretY+120
+		mouseclick, left, A_CaretX + 80, A_CaretY + 120
 		winwait ahk_class ibw:2, InfoBox DLL, 1
 		if not ErrorLevel {
 			sendinput {home}b{up 17}{enter}{esc}
 		}
 	}
 	return
-#IfWinActive ahk_group notesInbox
+
+#IfWinActive ahk_group notesInbox ;-------------------- LOTUS NOTES (inbox)
+
 $F9::
 	currentkeydelay := A_KeyDelay
 	setkeydelay 100
