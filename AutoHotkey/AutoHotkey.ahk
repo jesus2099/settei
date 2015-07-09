@@ -27,9 +27,9 @@ guillemet() {
 	}
 }
 ; -----------------------*-------------- fin var début macros -*--------------------------------------
-; !alt +shift ^ctrl #win
+; !alt +shift ^ctrl #win <^>!altgr
 
-; make the scroll lock key (ScrLk) toggle all hotkeys. http://xahlee.info/mswin/autohotkey_examples.html
+; make the scroll lock key toggle (only this) ahk file. http://xahlee.info/mswin/autohotkey_examples.html
 $ScrollLock::Suspend
 
 ; protection souris pétée
@@ -44,13 +44,55 @@ $ScrollLock::Suspend
 ;alt+shift+ctrl+win+a
 !+^#SC010::edit
 
-#e::run c:\windows\explorer.exe /select`, %userprofile%\Documents\Sujets, , max
-#g::run c:\windows\explorer.exe /select`, c:\git\_ext, , max
+; #############
+; TRUCS WINDOWS
+; #############
+
+#e::run, explorer /select`, %userprofile%\Documents\Sujets, , max
+#g::run, explorer /select`, c:\git\_ext, , max
+
+; Ouverture de l’URL sélectionnée ou copiée
+^#i::
+^#o::
+	URLRegExp := "https?://\S+"
+	If (RegExMatch(Clipboard, URLRegExp, url) = 0) {
+		ClipboardSaved := ClipboardAll
+		SendInput, ^c
+		ClipWait, 0
+		RegExMatch(Clipboard, URLRegExp, url)
+		Clipboard := ClipboardSaved
+		ClipboardSaved := ; free up memory from big clipboard content
+	}
+	If (url != "") {
+		If (A_ThisHotkey = "^#o") {
+			Run, "%programfiles% (x86)\Opera\opera.exe" %url%
+		} Else If (A_ThisHotkey = "^#i") {
+			Run, "%programfiles% (x86)\Internet Explorer\iexplore.exe" %url%
+		}
+	}
+	Return
+
+; Basculer l’affichage des fichiers cachés
+#h::
+	RegRead, HiddenFilesStatus, HKEY_CURRENT_USER, Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced, Hidden
+	HiddenFilesStatus := HiddenFilesStatus != 1 ? 1 : 2 ; 1 = show hidden files / 2 = hide hidden files
+	RegWrite, REG_DWORD, HKEY_CURRENT_USER, Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced, Hidden, %HiddenFilesStatus%
+	WinGetClass, class, A
+	If (class In CabinetWClass,ExploreWClass) { ; Explorer
+		SendInput, {F5}
+;	} Else {
+;		PostMessage, 0x111, 28931, , , A ; 0x111 = WM_COMMAND / 28931 = 0x7103 = Refresh (Windows XP)
+;		PostMessage, 0x111, 41504, , , A ; 0x111 = WM_COMMAND / 41504 = Refresh (Windows 7)
+	}
+	Return
 
 <^>!delete::drive, eject
 
-; #############################
-; trucs français (<^>!ALTGR ou +SHIFT)
+; ##########################
+; INTERNATIÖNAZICHE KLÄVIEER
+; ##########################
+
+; trucs français
 <^>!<::sendinput «{u+00a0}
 <^>!+<::sendinput {u+00a0}»{space}
 +é::sendinput É
@@ -77,6 +119,7 @@ $<^>!SC034::sendinput :
 $!::sendinput {u+00a0}{u+0021}
 $<^>!!::sendinput {u+0021}
 +space::sendinput {u+00a0}
+
 ; chiffres romains
 ^+SC002::Ⅰ
 ^+SC003::Ⅱ
@@ -90,7 +133,8 @@ $<^>!!::sendinput {u+0021}
 ^+SC00B::sendinput Ⅹ
 ^+SC00C::Ⅺ
 ^+SC00D::Ⅻ
-; trucs japonais (#WIN)
+
+; trucs japonais
 #SC002::＆
 #SC003::〜
 #SC006::（
@@ -111,6 +155,7 @@ $<^>!!::sendinput {u+0021}
 #SC018::sendinput ō
 #+SC018::sendinput Ō
 ^#numpaddot::sendinput ・
+
 ; trucs divers
 <^>!c::©
 <^>!p::℗
