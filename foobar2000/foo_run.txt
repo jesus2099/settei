@@ -1,5 +1,5 @@
 ﻿Musicbrainz lookup
-https://musicbrainz.org/search?type=recording&method=advanced&query=recording'%3A%22'%title%'%22+AND+artist%3A%22'%artist%'%22+AND+release%3A%22'%album%'%22'
+"https://musicbrainz.org/search?type=recording&method=advanced&query=recording'%3A%22'%title%'%22+AND+artist%3A%22'%artist%'%22+AND+release%3A%22'%album%'%22'"
 
 Explore Directory
 explorer /E,"$substr(%_path%,0,$strrchr(%_path%,'\'))"
