@@ -52,8 +52,9 @@ $ScrollLock::Suspend
 #g::run, explorer /select`, c:\git\_ext, , max
 
 ; Ouverture de l’URL sélectionnée ou copiée
-^#i::
 ^#o::
+^#f::
+^#i::
 	URLRegExp := "https?://\S+"
 	If (RegExMatch(Clipboard, URLRegExp, url) = 0) {
 		ClipboardSaved := ClipboardAll
@@ -66,6 +67,8 @@ $ScrollLock::Suspend
 	If (url != "") {
 		If (A_ThisHotkey = "^#o") {
 			Run, "%programfiles% (x86)\Opera\opera.exe" %url%
+		} Else If (A_ThisHotkey = "^#f") {
+			Run, "%programfiles% (x86)\Mozilla Firefox\firefox.exe" %url%
 		} Else If (A_ThisHotkey = "^#i") {
 			Run, "%programfiles% (x86)\Internet Explorer\iexplore.exe" %url%
 		}
