@@ -48,8 +48,8 @@ $ScrollLock::Suspend
 ; TRUCS WINDOWS
 ; #############
 
-#e::run, explorer /select`, %userprofile%\Documents\Sujets, , max
-#g::run, explorer /select`, c:\git\_ext, , max
+#e::run, explorer /select`, %userprofile%\Documents, , max
+#g::run, explorer /select`, c:\git, , max
 
 ; Ouverture de l’URL sélectionnée ou copiée
 ^#o::
