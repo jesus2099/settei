@@ -49,7 +49,7 @@ $ScrollLock::Suspend
 ; #############
 
 #e::run, explorer /select`, %userprofile%\Documents, , max
-#g::run, explorer /select`, c:\git, , max
+#g::run, explorer c:\git, , max
 
 ; Ouverture de l’URL sélectionnée ou copiée
 ^#o::
