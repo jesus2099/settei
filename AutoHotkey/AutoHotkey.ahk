@@ -99,7 +99,7 @@ $ScrollLock::Suspend
 <^>!<::sendinput «{u+00a0}
 <^>!+<::sendinput {u+00a0}»{space}
 +é::sendinput É
-+è::È
++è::sendinput È
 SC004::guillemet()
 +SC004::sendinput "
 SC005::sendinput ’
