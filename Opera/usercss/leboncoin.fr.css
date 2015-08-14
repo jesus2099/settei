@@ -1,0 +1,6 @@
+div#ContainerMain > div[class^='oas-'],
+div.content-color > div.google,
+div.content-color > div.list-gallery > div.oas-Right,
+div.content-color > div.list-lbc > div.oas-x30 {
+	display: none;
+}
