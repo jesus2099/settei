@@ -98,8 +98,8 @@ $ScrollLock::Suspend
 ; trucs français
 <^>!<::sendinput «{u+00a0}
 <^>!+<::sendinput {u+00a0}»{space}
-+é::sendinput É
-+è::sendinput È
++SC003::sendinput É
++SC008::sendinput È
 SC004::guillemet()
 +SC004::sendinput "
 SC005::sendinput ’
