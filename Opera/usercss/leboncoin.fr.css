@@ -1,1 +1,5 @@
+body {
+	background: inherit !important;
+	background-color: #FFFFEB !important;
+}
 div.google, div[class^='oas-'] { display: none; }
