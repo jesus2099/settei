@@ -1,6 +1,12 @@
 @charset "utf-8";
 
-.lastfm-ad { display: none; }
+/* ads */
+[class^='lastfm-ad'], .related-ads { display: none !important; }
+
+/* what’s this ? no content */
+.overlay-side-rail { display: none !important; }
+.overlay-content { margin-right: 64px !important; }
+
 /* FIX: ☞ Main text (scrobbled tracks and artist names) is invisible (all text in tables seem to have 1px font or clipping of some sort). http://23.gy/4bTCw */
 .chartlist .chartlist-name, .chartlist .chartlist-album {
 	position: static !important;
