@@ -1,46 +1,9 @@
 @charset "utf-8";
 
-a[target]:not([target='_parent']):not([target='_self']):not([target='_self']):after {
-	content: url(data:image/gif;base64,R0lGODlhCwAKAPcAAOAaGv///////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAIALAAAAAALAAoAAAgpAAUIFACgoEEAAwkeLJgQYUODBBMqZOhwIEOBFTFWXAhRYkOJGTlmDAgAOw==);
-	margin: 0 2px 0 4px;
+/* hide « DO NOT USE THIS THAT » label comments ;p http://forums.musicbrainz.org/viewtopic.php?id=5906 */
+a[href*='/label/'] + span.comment {
+	display: none;
 }
-/*spot AC*/
-span.name-variation { border-bottom: 2px dashed maroon; }
-
-/*spot CAA pics and white space around CAA pics*/
-a.artwork-image > img { box-shadow: 0 0 8px black; }
-
-/*voting colours*/
-div[class='edit-note'] > h3.owner {
-	background-color: #dfd !important;
-	text-shadow: 1px 1px 8px #030;
-}
-div[class='edit-note'] > h3.owner img.gravatar {
-	max-height: 2em !important;
-	vertical-align: top !important;
-}
-div.edit-note > h3.Yes {
-	background-color: #b1ebb0 !important;
-
-}
-div.edit-note > h3.No {
-	background-color: #ebb1ba !important;
-}
-div.edit-note > h3.Abstain {
-	background-color: #f2f0a5 !important;
-}
-div.edit-note > div.edit-note-text {
-	opacity: .4;
-}
-div.edit-note > h3.owner + div.edit-note-text, 
-div.edit-note > h3.Yes + div.edit-note-text, 
-div.edit-note > h3.No + div.edit-note-text {
-	opacity: 1;
-}
-div.edit-note > h3.owner + div.edit-note-text, 
-div.edit-note > h3.Yes + div.edit-note-text {
-	color: #060;
-}
-div.edit-note > h3.No + div.edit-note-text {
-	color: #600;
+*:hover > a[href*='/label/'] + span.comment {
+	display: inherit;
 }
