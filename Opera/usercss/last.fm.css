@@ -1,0 +1,7 @@
+@charset "utf-8";
+
+.lastfm-ad { display: none; }
+/* FIX: ☞ Main text (scrobbled tracks and artist names) is invisible (all text in tables seem to have 1px font or clipping of some sort). http://23.gy/4bTCw */
+.chartlist .chartlist-name, .chartlist .chartlist-album {
+	position: static !important;
+}
