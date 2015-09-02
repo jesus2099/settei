@@ -40,7 +40,7 @@ body.two-column-layout .chartlist .countbar-bar {
 a {
 	text-decoration: underline !important;
 }
-button, input[type="submit"] {
+button:not(.image-overlay-playlink-link), input[type="submit"] {
 	background: #ddd !important;
 }
 button:not(.stationlink), input[type="submit"] {
