@@ -12,18 +12,22 @@
 	position: static !important;
 }
 
-/* front page chartlist columns too big */
-body.two-column-layout .chartlist .chartlist-index,
-body.two-column-layout .chartlist .chartlist-play,
-body.two-column-layout .chartlist .chartlist-loved {
+/* some chartlist columns too big */
+body table.chartlist .chartlist-index,
+body table.chartlist.chartlist--no-image .chartlist-play,
+body table.chartlist.chartlist--no-image .chartlist-loved {
 	padding: 0 !important;
+	width: 6px !important;
+}
+body.two-column-layout table.chartlist:not(.chartlist--no-index) .chartlist-play,
+body.two-column-layout table.chartlist:not(.chartlist--no-index) .chartlist-loved {
 	width: 12px !important;
 }
-body.two-column-layout .chartlist .chartlist-play a,
-body.two-column-layout .chartlist .chartlist-loved a {
+body table.chartlist.chartlist--no-image .chartlist-play a,
+body table.chartlist.chartlist--no-image .chartlist-loved a {
 	width: inherit !important;
 }
-body.two-column-layout .chartlist .chartlist-loved form {
+body table.chartlist.chartlist--no-image .chartlist-loved form {
 	width: 0 !important;
 }
 
@@ -40,7 +44,7 @@ body.two-column-layout .chartlist .countbar-bar {
 a {
 	text-decoration: underline !important;
 }
-button:not(.image-overlay-playlink-link), input[type="submit"] {
+button:not(.image-overlay-playlink-link), input[type="submit"]:not(.shout-btn) {
 	background: #ddd !important;
 }
 button:not(.stationlink), input[type="submit"] {
