@@ -11,3 +11,41 @@
 .chartlist .chartlist-name, .chartlist .chartlist-album {
 	position: static !important;
 }
+
+/* front page chartlist columns too big */
+body.two-column-layout .chartlist .chartlist-index,
+body.two-column-layout .chartlist .chartlist-play,
+body.two-column-layout .chartlist .chartlist-loved {
+	padding: 0 !important;
+	width: 12px !important;
+}
+body.two-column-layout .chartlist .chartlist-play a,
+body.two-column-layout .chartlist .chartlist-loved a {
+	width: inherit !important;
+}
+body.two-column-layout .chartlist .chartlist-loved form {
+	width: 0 !important;
+}
+
+/* chartlist counter bars overlap the text */
+.chartlist .countbar-bar {
+	margin-right: 0 !important;
+	width: 600px;
+}
+body.two-column-layout .chartlist .countbar-bar {
+	width: 200px;
+}
+
+/* make things less “invisible” */
+a {
+	text-decoration: underline !important;
+}
+button, input[type="submit"] {
+	background: #ddd !important;
+}
+button:not(.stationlink), input[type="submit"] {
+	padding: 0 4px !important;
+}
+.timestamp, .footer {
+	color: black !important;
+}
