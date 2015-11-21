@@ -30,7 +30,13 @@ guillemet() {
 ; !alt +shift ^ctrl #win <^>!altgr
 
 ; make the scroll lock key toggle (only this) ahk file. http://xahlee.info/mswin/autohotkey_examples.html
-$ScrollLock::Suspend
+$ScrollLock::
+	if (!RegExMatch(A_IPAddress1, "^192\.168\.1\.\d+$") > 0 and !RegExMatch(A_IPAddress2, "^192\.168\.1\.\d+$") > 0) {
+		Suspend
+	} else { ; let my home KVM receive scrolllocks
+		SendInput {ScrollLock}
+	}
+	Return
 
 ; protection souris pétée
 ;LButton::

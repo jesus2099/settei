@@ -15,7 +15,7 @@ if (RegExMatch(A_IPAddress1, "^192\.168\.1\.\d+$") > 0) {
 	}
 	Run, "%userprofile%\desktop\clip.lnk" ; vpn URL
 } else {
-	Run, "%appdata%\microsoft\windows\start menu\internet explorer.lnk" ; internet connection URL
+	Run, "%programfiles% (x86)\Opera\opera.exe" https://gateway.zscalertwo.net:443/auD?origurl=opera`%3Aabout
 }
 
 ; ###################################
