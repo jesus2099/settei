@@ -1,1 +1,12 @@
 @charset "utf-8";
+
+.ui-widget-content {
+	background: inherit !important;
+	border: 0 !important;
+}
+.ui-widget-content .content-loading {
+	background: #ccc !important;
+}
+.ui-widget-content .ui-dialog-titlebar, .ui-widget-content button.ui-button {
+	display: none;
+}
