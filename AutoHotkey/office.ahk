@@ -34,6 +34,13 @@ $backspace::
 #IfWinActive
 return
 
+; #############
+; TRUCS WINDOWS
+; #############
+
+#s::run, explorer S:\Jhia\TELEPHONIE, , max
+
+
 #IfWinActive ahk_exe notes2.exe ;-------------------- LOTUS NOTES (rédaction)
 
 ^f:: ;rechercher
