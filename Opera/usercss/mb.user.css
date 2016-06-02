@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+/* I should try to apply the following only to CAA, not other widget, as it breakx them all
 .ui-widget-content {
 	background: inherit !important;
 	border: 0 !important;
@@ -10,3 +11,4 @@
 .ui-widget-content .ui-dialog-titlebar, .ui-widget-content button.ui-button {
 	display: none;
 }
+*/
