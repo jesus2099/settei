@@ -52,14 +52,14 @@ return
 	sendinput u
 	return
 
-;^s:: ;(texte) souligné et vert
-;	WinMenuSelectItem, , , texte, souligné
-;	WinMenuSelectItem, , , texte, couleur, vert foncé
-;	return
+^s:: ;(texte) souligné et vert
+	WinMenuSelectItem, , , Texte, Souligné
+	WinMenuSelectItem, , , Texte, Couleur, Vert foncé
+	return
 
 ^r:: ;(texte) rayé et rouge
-	WinMenuSelectItem, , , texte, barré
-	WinMenuSelectItem, , , texte, couleur, rouge
+	WinMenuSelectItem, , , Texte, Barré
+	WinMenuSelectItem, , , Texte, Couleur, Rouge
 	return
 
 ^l::
