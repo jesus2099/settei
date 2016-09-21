@@ -19,6 +19,9 @@ aside.quote > :last-child {
 
 /* code blocks and handmade block quotes
    ------------------------------------- */
+code {
+	background-color: #eee !important;
+}
 pre > code,
 :not(aside):not(.quote) > blockquote {
 	background-color: #eee !important;
