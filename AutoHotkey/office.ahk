@@ -10,12 +10,15 @@ menu, tray, icon, %programfiles% (x86)\Notes-852\notes.exe
 ; ############
 
 if (RegExMatch(A_IPAddress1, "^192\.168\.1\.\d+$") > 0) {
+	; Maison
 	if (A_IPAddress2 != "0.0.0.0") {
+		; WIFI désactivé
 		RunWait, "%programfiles%\Lenovo\HOTKEY\TpFnF5.exe"
 	}
 	Run, "%userprofile%\desktop\clip.lnk" ; vpn URL
 } else {
-	Run, "%programfiles% (x86)\Opera\opera.exe" https://gateway.zscalertwo.net:443/auD?origurl=opera`%3Aabout
+	; Bureau
+	Run, "%programfiles% (x86)\Internet Explorer\iexplore.exe"
 }
 
 ; ###################################
@@ -34,6 +37,13 @@ $backspace::
 #IfWinActive
 return
 
+; #############
+; TRUCS WINDOWS
+; #############
+
+#s::run, explorer S:\Jhia\TELEPHONIE, , max
+
+
 #IfWinActive ahk_exe notes2.exe ;-------------------- LOTUS NOTES (rédaction)
 
 ^f:: ;rechercher
@@ -42,14 +52,14 @@ return
 	sendinput u
 	return
 
-;^s:: ;(texte) souligné et vert
-;	WinMenuSelectItem, , , texte, souligné
-;	WinMenuSelectItem, , , texte, couleur, vert foncé
-;	return
+^s:: ;(texte) souligné et vert
+	WinMenuSelectItem, , , Texte, Souligné
+	WinMenuSelectItem, , , Texte, Couleur, Vert foncé
+	return
 
 ^r:: ;(texte) rayé et rouge
-	WinMenuSelectItem, , , texte, barré
-	WinMenuSelectItem, , , texte, couleur, rouge
+	WinMenuSelectItem, , , Texte, Barré
+	WinMenuSelectItem, , , Texte, Couleur, Rouge
 	return
 
 ^l::

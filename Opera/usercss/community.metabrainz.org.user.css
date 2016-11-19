@@ -1,0 +1,35 @@
+/* MORE CONTRAST TO QUOTED TEXT AND CODE BLOCKS
+   ============================================
+   replacing #f8f8f8 (almost white on white)
+   by #ddd (light grey on white) */
+
+/* Discourse dynamic block quotes
+   ------------------------------ */
+aside.quote > * {
+	background-color: #eee !important;
+	border: 4px solid #ccc !important;
+	border-width: 0 4px !important;
+}
+aside.quote > :first-child {
+	border-top-width: 4px !important;
+}
+aside.quote > :last-child {
+	border-bottom-width: 4px !important;
+}
+
+/* code blocks and handmade block quotes
+   ------------------------------------- */
+code {
+	background-color: #eee !important;
+}
+pre > code,
+:not(aside):not(.quote) > blockquote {
+	background-color: #eee !important;
+	border: 4px solid #ccc !important;
+}
+
+/* UNHIDE LINK CLICK COUNTERS
+   ========================== */
+.badge-notification.clicks {
+	display: inline-block !important;
+}

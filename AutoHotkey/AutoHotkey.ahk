@@ -102,8 +102,8 @@ $ScrollLock::
 ; ##########################
 
 ; trucs français
-<^>!<::sendinput «{u+00a0}
-<^>!+<::sendinput {u+00a0}»{space}
+<^>!<::sendinput «{u+202f}
+<^>!+<::sendinput {u+202f}»{space}
 +SC003::sendinput É
 +SC008::sendinput È
 SC004::guillemet()
@@ -119,13 +119,13 @@ SC007::sendinput ‐
 <^>!+SC010::Æ
 <^>!SC018::sendinput œ
 <^>!+SC018::sendinput Œ
-$?::sendinput {u+00a0}?
+$?::sendinput {u+202f}?
 $<^>!?::sendinput ?
-$SC033::sendinput {u+00a0};
+$SC033::sendinput {u+202f};
 $<^>!SC033::sendinput {u+003b}
-$SC034::sendinput {u+00a0}:
+$SC034::sendinput {u+202f}:
 $<^>!SC034::sendinput :
-$!::sendinput {u+00a0}{u+0021}
+$!::sendinput {u+202f}{u+0021}
 $<^>!!::sendinput {u+0021}
 +space::sendinput {u+00a0}
 

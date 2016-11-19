@@ -1,9 +1,0 @@
-@charset "utf-8";
-
-/* hide « DO NOT USE THIS THAT » label comments ;p http://forums.musicbrainz.org/viewtopic.php?id=5906 */
-a[href*='/label/'] + span.comment {
-	display: none;
-}
-*:hover > a[href*='/label/'] + span.comment {
-	display: inherit;
-}

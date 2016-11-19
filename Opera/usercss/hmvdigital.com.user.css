@@ -1,0 +1,6 @@
+p.licensor, p.barcode {
+	display: block !important;
+}
+span.isrc {
+	display: inline !important;
+}
