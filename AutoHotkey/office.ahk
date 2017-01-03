@@ -44,8 +44,11 @@ return
 #s::run, explorer S:\Jhia\TELEPHONIE, , max
 
 
-#IfWinActive ahk_exe notes2.exe ;-------------------- LOTUS NOTES (rédaction)
+#IfWinActive ahk_exe notes2.exe ;-------------------- LOTUS NOTES (rédaction et global je crois)
 
+^Tab:: ;Blockage du Ctrl+Tab, qui plante Notes, bravo
+^+Tab::	sendinput ^{F8}
+	return
 ^f:: ;rechercher
 	send !v
 	sleep 100
