@@ -1,0 +1,26 @@
+Walkman®
+========
+
+Output format
+-------------
+
+MP3 (LAME), V6
+
+Destination
+-----------
+
+- Ask me later
+- Ask
+- %album artist% - %album% - '['mono']' '['v6']'\[%disc%][%track%. ][%track artist% - ]%title%
+
+Processing
+----------
+
+Downmix channels to mono
+
+Other
+-----
+
+- ReplayGain-scan output files as album
+- Transfer attached pictures
+- Copy other files to the destination folder: *.cue;*.jpg
