@@ -40,6 +40,8 @@ $ScrollLock::
 
 ; protection souris pétée
 ;LButton::
+;MButton::
+;RButton::
 ;	If (A_TimeSincePriorHotkey < 100) ;hyperclick
 ;		Return
 ;	sendinput {LButton down}
