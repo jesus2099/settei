@@ -17,9 +17,6 @@ if (RegExMatch(A_IPAddress1, "^192\.168\.1\.\d+$") > 0) {
 	Run, "%userprofile%\desktop\clip.lnk" ; vpn URL
 } else {
 	; Bureau
-	EnvGet, domaine, USERDNSDOMAIN
-	RegExMatch(domaine, "\w+\.\w+$", domaine)
-	Run, "C:\Program Files (x86)\Vivaldi\Application\vivaldi.exe" http://eservicesrh.%domaine%/
 }
 
 ; ###################################
