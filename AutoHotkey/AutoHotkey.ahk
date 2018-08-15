@@ -56,7 +56,7 @@ $ScrollLock::
 ; TRUCS WINDOWS
 ; #############
 
-#e::run, explorer /select`, %userprofile%\Documents, , max
+;#e::run, explorer /select`, %userprofile%\Documents, , max
 #g::run, explorer c:\git, , max
 
 ; Ouverture de l’URL sélectionnée ou copiée
