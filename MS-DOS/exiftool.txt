@@ -1,7 +1,7 @@
 Shift date
 ----------
 
-exiftool -overwrite_original -progress -AllDates+=7:00 -FileModifyDate+=7:00 *.jpg
+exiftool -overwrite_original -progress -AllDates+=7:00 -FileModifyDate+=7:00 *.jpg *.mp4
 
 Set camera
 ----------
