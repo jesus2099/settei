@@ -15,8 +15,11 @@ menu, tray, tip, %login%`nad\%login%
 ^F9::
 	sendinput %mdp%{enter}
 	return
+#IfWinActive ahk_class JamShadowClass, Connexion à : clip.
+^F9::
+	sendinput ^a%login%{tab}%pin%
+	return
 #If not WinActive("ahk_exe notes2.exe") and not WinActive("ARIS Business Architect") and not WinActive("ahk_exe babelmap.exe") and not WinActive("ahk_exe locate32.exe")
-+F9::sendinput ^a%login%{tab}%pin%
 ^F9::sendinput ^a%login%{tab}%mdp%{enter}
 ^!F9::sendinput ^aad\%login%{tab}%mdp%{enter}
 ^+F9::sendinput ^a%mdp%{enter}
