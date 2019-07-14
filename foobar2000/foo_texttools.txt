@@ -6,3 +6,6 @@ full path
 
 track times
 %length%
+
+full track times
+%length_ex%
