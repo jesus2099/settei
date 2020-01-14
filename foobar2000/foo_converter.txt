@@ -11,7 +11,7 @@ Destination
 
 - Ask me later
 - Ask
-- %album artist% $if2('['$year(%original release date%)']' ,$if2('['$year(%date%)']' ,- ))%album%\%discnumber%%track%. [%track artist% - ]%title%
+- %album artist% \ $if2($year(%original release date%) -,$if2($year(%date%) -,)) %album% \ [[%discnumber%.]%track% -] [%track artist% -] %title%
 
 Processing
 ----------
