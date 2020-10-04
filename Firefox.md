@@ -17,7 +17,7 @@ https://addons.mozilla.org/firefox/addon/always-right/
 Closed tab bin icon
 -------------------
 
-https://addons.mozilla.org/firefox/addon/undoclosetabbutton/
+https://addons.mozilla.org/fr/firefox/addon/undo-close-tab-button/
 
 
 Other extensions
