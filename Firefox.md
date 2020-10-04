@@ -1,32 +1,31 @@
 ﻿Settings
 ========
 
-Here is how to 
-[prevent new windows](http://kb.mozillazine.org/Browser.link.open_newwindow.restriction):
 
+[Prevent new windows](http://kb.mozillazine.org/Browser.link.open_newwindow.restriction):
+---------------------
     browser.link.open_newwindow.restriction;0
 
-Extensions
-==========
 
-[Duplicate Tabs Closer](https://addons.mozilla.org/firefox/addon/duplicate-tabs-closer)
------------------------
+Open tabs in a sane order (always next to the current tab)
+-------------------------
 
-Spot and close duplicate tabs.
+`browser.tabs.insertAfterCurrent;true` does not work properly:
+https://addons.mozilla.org/firefox/addon/always-right/
 
-Greasemonkey
-------------
 
-For Greasemonkey user scripts.
+Closed tab bin icon
+-------------------
 
-[Tab Control](https://addons.mozilla.org/firefox/addon/tab-control)
--------------
+https://addons.mozilla.org/firefox/addon/undoclosetabbutton/
 
-Stop the weird default behaviour about new tab position.
-Acts like Opera.
 
-[Undo Close Tab Replacement](https://addons.mozilla.org/firefox/addon/undo-close-tab-replacement)
-----------------------------
+Other extensions
+================
 
-Better than genuine feature.
-Acts like Opera.
+
+Spot and close duplicate tabs
+-----------------------------
+
+https://addons.mozilla.org/firefox/addon/duplicate-tabs-closer/
+
