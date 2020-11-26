@@ -1,6 +1,12 @@
 Xiaomi Redmi 7
 ==============
 
+Firefox 68.11.0
+---------------
+
+Il est important de rester dans cette version pour pouvoir 
+continuer d’utiliser les extensions (add-ons), comme Violentmonkey (userscripts), etc.
+
 REACH_DOWNLINK_SMS_LIMITATION
 -----------------------------
 
