@@ -4,8 +4,10 @@ Xiaomi Redmi 7
 Firefox 68.11.0
 ---------------
 
-Il est important de rester dans cette version pour pouvoir 
+Rester dans cette version pour pouvoir 
 continuer d’utiliser les extensions (add-ons), comme Violentmonkey (userscripts), etc.
+Si Firefox a déjà été mis à jour, essayer de savoir quelle architecture correspond au téléphone. (?)
+https://ftp.mozilla.org/pub/mobile/releases/68.11.0/
 
 REACH_DOWNLINK_SMS_LIMITATION
 -----------------------------
