@@ -5,7 +5,8 @@ function mcd {
 	cd $1
 }
 
-# alias omxstream='_(){ omxplayer `youtube-dl --get-url --format best[ext=mp4]/best $1`; };_'
+alias streamo='_(){ omxplayer `youtube-dl --get-url --format best[ext=mp4]/best $1`; };_'
+alias streamv='_(){ vlc --fullscreen `youtube-dl --get-url --format best[ext=mp4]/best $1`; };_'
 
 function replay {
 	if test -z $1 ; then

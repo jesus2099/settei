@@ -1,0 +1,1 @@
+//<ip>/<share>   /media/<server>/<share>   cifs user,rw,uid=1000,gid=1000,credentials=/home/pi/.mdp-cifs 0 0
