@@ -1,4 +1,25 @@
-﻿Settings
+﻿Search bookmarks
+================
+
+minc (catalogue) (音楽の森)
+----------------
+
+    mc
+    javascript:c="%s";if(c.indexOf("-")>0){c=c.split("-");self.location.href="http://www.minc.gr.jp/db/AlbInfo.aspx?CAT1="+c[0]+"&CAT2="+c[1]}
+
+Twitter Join Date
+-----------------
+
+    t
+    http://www.twitterjoindate.com/search?utf8=%E2%9C%93&name=%s
+
+Web Archive (with optional date/timestamp)
+-----------
+
+    wa
+    javascript:s="%s".replace(/\s+/g, " ").split(" ");self.location.href="https://web.archive.org/web/"+(s[1]?s[1]:"*")+"/"+s[0];
+
+Settings
 ========
 
 
