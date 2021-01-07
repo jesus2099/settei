@@ -7,6 +7,7 @@ function mcd {
 
 alias streamo='_(){ omxplayer `youtube-dl --get-url --format best[ext=mp4]/best $1`; };_'
 alias streamv='_(){ vlc --fullscreen `youtube-dl --get-url --format best[ext=mp4]/best $1`; };_'
+alias streama='_(){ audacious `youtube-dl --get-url --format bestaudio[ext=mp3]/bestaudio $1`; };_'
 
 function replay {
 	if test -z $1 ; then
@@ -18,3 +19,4 @@ function replay {
 }
 
 # https://www.raspberrypi.org/forums/viewtopic.php?p=1074231
+
