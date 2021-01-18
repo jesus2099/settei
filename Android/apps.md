@@ -22,7 +22,7 @@ Check your CPU architecure (ABI) with CPU Info app:
 
 You must (temporarily) allow to install APK from outside of Play Store.
 
-APK (Android app install package) is available in [aarch64], api-16 (arm), x86 ([i386]) and [x86_64].
+APK (Android app install package) is available in [aarch64], api-16 ([arm]), x86 ([i386]) and [x86_64].
 You can use https://developer.android.com/ndk/guides/abis to find out which one matches your ABI.
 For instance, Xiaomi Redmi 7 arm64-v8a ABI, seems to match AArch64 APK download (APK hot linked):
 
@@ -44,5 +44,6 @@ For instance, Xiaomi Redmi 7 arm64-v8a ABI, seems to match AArch64 APK download 
 |               | POPCNT
 
 [aarch64]: https://archive.mozilla.org/pub/mobile/releases/68.11.0/android-aarch64/multi/fennec-68.11.0.multi.android-aarch64.apk
+[arm]: https://archive.mozilla.org/pub/mobile/releases/68.11.0/android-api-16/multi/fennec-68.11.0.multi.android-arm.apk
 [i386]: https://archive.mozilla.org/pub/mobile/releases/68.11.0/android-x86/multi/fennec-68.11.0.multi.android-i386.apk
 [x86_64]: https://archive.mozilla.org/pub/mobile/releases/68.11.0/android-x86_64/multi/fennec-68.11.0.multi.android-x86_64.apk
