@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Solaar 1.0.2
+Comment=Logitech Unifying Receiver peripherals manager
+# sudo cp /home/pi/git/Solaar/rules.d/42-logitech-unify-permissions.rules /etc/udev/rules.d
+# sudo udevadm control --reload-rules
+Exec=/home/pi/git/Solaar/bin/solaar --window hide
+Icon=solaar
+StartupNotify=true
+Terminal=false
+Type=Application
+Keywords=logitech;unifying;receiver;mouse;keyboard;
+Categories=Utility;GTK;
+#Categories=Utility;GTK;Settings;HardwareSettings;
