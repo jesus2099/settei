@@ -1,0 +1,58 @@
+<root>
+    <service minimized="false" num_exec="1">
+        <label>MusicBrainz '('work')'</label>
+        <path>"https://musicbrainz.org/search?type=work&amp;method=advanced&amp;query=work'%3A%22'%title%'%22+AND+artist%3A%22'%artist%'%22+AND+release%3A%22'%album%'%22'"</path>
+    </service>
+    <service minimized="false" num_exec="1">
+        <label>MusicBrainz '('recording')'</label>
+        <path>"https://musicbrainz.org/search?type=recording&amp;method=advanced&amp;query=recording'%3A%22'%title%'%22+AND+artist%3A%22'%artist%'%22+AND+release%3A%22'%album%'%22'"</path>
+    </service>
+    <service minimized="false" num_exec="1">
+        <label>MusicBrainz '('release')'</label>
+        <path>"https://musicbrainz.org/search?type=release&amp;method=advanced&amp;query=artist'%3A%22'%artist%'%22+AND+release%3A%22'%album%'%22'"</path>
+    </service>
+    <service minimized="false" num_exec="1">
+        <label>MusicBrainz '('release group')'</label>
+        <path>"https://musicbrainz.org/search?type=release_group&amp;method=advanced&amp;query=artist'%3A%22'%artist%'%22+AND+releasegroup%3A%22'%album%'%22'"</path>
+    </service>
+    <service minimized="false" num_exec="1">
+        <label>Open Directory</label>
+        <path>"$substr(%_path%,0,$strrchr(%_path%,'\'))"</path>
+    </service>
+    <service minimized="false" num_exec="1">
+        <label>Explore Directory</label>
+        <path>explorer /E,"$substr(%_path%,0,$strrchr(%_path%,'\'))"</path>
+    </service>
+    <service minimized="false" num_exec="49">
+        <label>Audacity</label>
+        <path>"C:\Program Files '('x86')'\Audacity\audacity.exe" "%_path%"</path>
+    </service>
+    <service minimized="false" num_exec="1">
+        <label>OpenAs...</label>
+        <path>rundll32.exe shell32.dll,OpenAs_RunDLL %_path%</path>
+    </service>
+    <service minimized="false" num_exec="1">
+        <label>$if(%link%,Follow %link%,No link available)</label>
+        <path>"%link%"</path>
+    </service>
+    <service minimized="false" num_exec="1">
+        <label>Search Artist</label>
+        <path>https://duckduckgo.com/?q='%22'$replace(%artist%, ,+)'%22'</path>
+    </service>
+    <service minimized="false" num_exec="1">
+        <label>Search Artist + Title</label>
+        <path>https://duckduckgo.com/?q=$replace('%22'%artist%'%22'+'%22'%title%'%22', ,+)</path>
+    </service>
+    <service minimized="false" num_exec="1">
+        <label>Wikipedia Artist</label>
+        <path>http://en.wikipedia.org/wiki/Special:Search?search=$replace(%artist%, ,_)</path>
+    </service>
+    <service minimized="false" num_exec="1">
+        <label>Wikipedia Album</label>
+        <path>http://en.wikipedia.org/wiki/Special:Search?search=$replace(%album%, ,_)</path>
+    </service>
+    <service minimized="false" num_exec="49">
+        <label>MP3Tag '('file')'</label>
+        <path>"C:\Program Files '('x86')'\Mp3tag\Mp3tag.exe" "/fn:%_path%"</path>
+    </service>
+</root>
