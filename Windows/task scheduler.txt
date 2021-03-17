@@ -1,4 +1,0 @@
-Lenovo laptop resets keyboard repeat rate and delay after hibernation
-https://answers.microsoft.com/en-us/windows/forum/windows_10-other_settings/keyboard-repeat-rate-and-delay-reset-after/2bf1fec8-3250-4e51-8fec-3be0e395c645
-https://answers.microsoft.com/en-us/windows/forum/windows_10-other_settings/keyboard-repeat-rate-and-delay-reset-after/5482e452-ce0c-41f0-a67a-49cbcea5618c
-Ouverture session / Déverrouillage station de travail : mode con rate=31 delay=0
