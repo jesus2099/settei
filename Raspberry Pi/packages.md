@@ -31,4 +31,4 @@ Raspbian (apt)
 Python (pip)
 ------
 
-- youtube-dl
+- youtube-dl (pip install --upgrade youtube-dl)
