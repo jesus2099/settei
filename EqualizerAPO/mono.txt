@@ -1,0 +1,2 @@
+Preamp: -6 dB
+Copy: L=L+R R=R+L
