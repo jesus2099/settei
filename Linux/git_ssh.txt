@@ -1,0 +1,8 @@
+SSH key creation for GitHub and GitLab
+
+ssh-keygen -t ed25519 -C "jesus2099@users.noreply.github.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
+Then paste id_ed25519.pub content in GitHub and GitLab SSH key list.
+Use git URL in git remote -v
