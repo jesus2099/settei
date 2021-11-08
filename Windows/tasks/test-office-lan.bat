@@ -1,8 +1,21 @@
 @echo off
+setlocal
+
+set _officeOrHome=home
 
 ipconfig|grep 192.168.0.
-if errorlevel 1 goto office
-goto home
+if errorlevel 1 set _officeOrHome=office
+
+(
+	echo ----------
+	echo.
+	date /t
+	time /t
+	echo %_officeOrHome%
+	echo.
+) >>$0.log
+
+goto %_officeOrHome%
 
 :office
 
