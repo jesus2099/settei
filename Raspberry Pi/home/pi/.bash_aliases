@@ -5,9 +5,9 @@ function mcd {
 	cd $1
 }
 
-alias streamo='_(){ omxplayer `youtube-dl --get-url --format best[ext=mp4]/best $@`; };_'
-alias streamv='_(){ vlc --fullscreen `youtube-dl --get-url --format best[ext=mp4]/best $@`; };_'
-alias streama='_(){ audacious `youtube-dl --get-url --format bestaudio[ext=mp3]/bestaudio $@`; };_'
+alias streamo='_(){ omxplayer `yt-dlp --get-url --format best[ext=mp4]/best $@`; };_'
+alias streamv='_(){ vlc --fullscreen `yt-dlp --get-url --format best[ext=mp4]/best $@`; };_'
+alias streama='_(){ audacious `yt-dlp --get-url --format bestaudio[ext=mp3]/bestaudio $@`; };_'
 
 function replay {
 	if test -z $1 ; then
@@ -15,5 +15,5 @@ function replay {
 		return 1
 	fi
 	# both omxplayer and vlc are hardware accelerated on Raspberry Pi
-	vlc --fullscreen `youtube-dl --get-url --format best[ext=mp4]/best $@`
+	vlc --fullscreen `yt-dlp --get-url --format best[ext=mp4]/best $@`
 }

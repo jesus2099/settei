@@ -32,3 +32,21 @@ Python (pip)
 ------
 
 - youtube-dl (pip install --upgrade youtube-dl)
+
+
+Manual installs
+===============
+
+yt-dlp
+------
+
+Replaces youtube-dl.
+
+Install:
+
+    sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
+    sudo chmod a+rx /usr/local/bin/yt-dlp
+
+Update:
+
+    sudo yt-dlp --update
