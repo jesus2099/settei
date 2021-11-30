@@ -3,7 +3,7 @@ setlocal
 
 set _officeOrHome=home
 
-ipconfig|grep 192.168.0.
+ipconfig|grep 192.168.>NUL
 if errorlevel 1 set _officeOrHome=office
 
 (
@@ -13,13 +13,14 @@ if errorlevel 1 set _officeOrHome=office
 	time /t
 	echo %_officeOrHome%
 	echo.
-) >>$0.log
+) >>%~dpn0.log
 
+echo %_officeOrHome%
 goto %_officeOrHome%
 
 :office
 
-call start-office-apps.bat
+call %~dp0\start-office-apps.bat
 goto end
 
 :home
