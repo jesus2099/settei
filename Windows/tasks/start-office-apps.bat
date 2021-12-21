@@ -1,5 +1,5 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 
 query process|find /i "outlook.exe">nul
 if %errorlevel% equ 1 (echo Starting Outlook & start "Outlook" "%ProgramFiles% (x86)\Microsoft Office\Office16\OUTLOOK.EXE")
@@ -14,10 +14,10 @@ if %errorlevel% equ 1 (
 	rem start "Teams" "%LocalAppData%\Microsoft\Teams\current\Teams.exe"
 	rem This works good but requires nrcmd.exe (excellent tool)
 	rem %USERPROFILE%\Documents\PRG\DOS\nircmd exec hide "%LocalAppData%\Microsoft\Teams\current\Teams.exe"
-	SET _hiddenLauncher=%~dpn0_hiddenLauncher.vbs
-	> "%_hiddenLauncher%" (
-		ECHO CreateObject^("Wscript.Shell"^).Run """" ^& "%LocalAppData%\Microsoft\Teams\current\Teams.exe" ^& """", 0, False
+	set _hiddenLauncher=%~dpn0_hiddenLauncher.vbs
+	> "!_hiddenLauncher!" (
+		echo CreateObject^("Wscript.Shell"^).Run """" ^& "%LocalAppData%\Microsoft\Teams\current\Teams.exe" ^& """", 0, False
 	)
-	cscript "%_hiddenLauncher%" //nologo
-	del "%_hiddenLauncher%"
+	cscript "!_hiddenLauncher!" //nologo
+	del "!_hiddenLauncher!"
 )
