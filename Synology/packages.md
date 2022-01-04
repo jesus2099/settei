@@ -50,7 +50,7 @@ Location: http://packages.synocommunity.com
 - ffmpeg (installed in /usr/local/ffmpeg/bin/ffmpeg)
 - htop
 - ncdu
-- SynoCLI File Tools (includes nano)
+- SynoCLI File Tools (includes nano and: jdupes --delete --no-prompt --recurse --param-order /folderKeep /folderDupe1 /folderDupe2)
 
 
 PCLoadLetter.co.uk
