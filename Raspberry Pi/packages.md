@@ -50,3 +50,17 @@ Install:
 Update:
 
     sudo yt-dlp --update
+
+
+Chromium extensions
+===================
+
+https://chrome.google.com/webstore/detail/activate-left-tab-on-clos/deejpigimpefppaaafigakaegkmcbile
+https://chrome.google.com/webstore/detail/close-others/jlkpafdhmdhiahnmcmjejmlidghcobeb
+https://chrome.google.com/webstore/detail/duplicate-tabs-closer/gnmdbogfankgjepgglmmfmbnimcmcjle
+https://chrome.google.com/webstore/detail/follow-for-github/agalokjhnhheienloigiaoohgmjdpned
+https://chrome.google.com/webstore/detail/open-tabs-next-to-current/gmpnnmonpnnmnhpdldahlekfofigiffh
+https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne
+https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm
+https://chrome.google.com/webstore/detail/user-agent-switcher-for-c/djflhoibgkdhkhhcedjiklpkjnoahfmg
+https://chrome.google.com/webstore/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag
