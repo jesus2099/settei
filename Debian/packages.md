@@ -1,6 +1,6 @@
 On my Debian 10 Xfce.
 
-Packages
+Packages (apt)
 ========
 
 - abcde
@@ -18,3 +18,9 @@ Packages
 - schism
 - thunderbird
 - xcape: `xcape -e 'Super_L=Alt_L|F1'`
+
+
+Others
+======
+
+- yt-dlp https://github.com/yt-dlp/yt-dlp
