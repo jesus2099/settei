@@ -1,6 +1,8 @@
 @echo off
 setlocal
 
+del %~dp0vpn-flag
+
 set _officeOrHome=home
 
 ipconfig|grep 192.168.>NUL
