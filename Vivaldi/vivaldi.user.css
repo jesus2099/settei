@@ -1,0 +1,25 @@
+/*
+https://forum.vivaldi.net/topic/10549/modding-vivaldi
+Vivaldi 2.6 and above:
+- Open vivaldi://experiments
+- Enable "Allow for using CSS modifications"
+- Open Appearance section in settings
+- Choose the folder you want to use
+- Place your CSS files inside it
+- Restart Vivaldi to see them in effect
+*/
+
+/*
+Copy an alert text content (VB-29942)
+https://web.archive.org/web/20201211144348/forum.vivaldi.net/topic/22710/copy-an-alert-text-content
+https://forum.vivaldi.net/topic/76160/copy-an-alert-text-content-2
+The problem is still here, in Vivaldi 5.3: 
+In Opera 12 we could copy a JavaScript popup (alert)’s text content.
+We can no longer do it in Vivaldi, latest version.
+
+Work-around by @luetage https://forum.vivaldi.net/post/587963
+*/
+
+#modal-bg {
+	user-select: all;
+}
