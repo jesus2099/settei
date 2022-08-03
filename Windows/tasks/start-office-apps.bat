@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-if not exist %~dp0vpn-flag (
+if not exist %~dp0_vpn-flag (
 
 	query process|find /i "teams.exe">nul
 	if !errorlevel! equ 1 (
@@ -36,6 +36,6 @@ if not exist %~dp0vpn-flag (
 	query process|find /i "vivaldi.exe">nul
 	if !errorlevel! equ 1 (echo Starting Vivaldi & start "Vivaldi" "%UserProfile%\AppData\Local\Vivaldi\Application\vivaldi.exe")
 
-	date /t > %~dp0vpn-flag
+	date /t > %~dp0_vpn-flag
 
 )
