@@ -21,11 +21,20 @@ if not exist %~dp0vpn-flag (
 		)
 	)
 
+	query process|find /i "opentouchcon...">nul
+	if !errorlevel! equ 1 (
+		choice /c yn /d y /t 4 /m "Start OpenTouch"
+		if !errorlevel! equ 1 (
+			echo Starting OpenTouch Conversation
+			start "OpenTouch Conversation" "%ProgramFiles% (x86)\Alcatel-Lucent Enterprise\OpenTouch Conversation\OpenTouchConversation.exe"
+		)
+	)
+
 	query process|find /i "outlook.exe">nul
 	if !errorlevel! equ 1 (echo Starting Outlook & start "Outlook" "%ProgramFiles% (x86)\Microsoft Office\Office16\OUTLOOK.EXE")
 
-	query process|find /i "opentouchcon...">nul
-	if !errorlevel! equ 1 (echo Starting OpenTouch Conversation & start "OpenTouch Conversation" "%ProgramFiles% (x86)\Alcatel-Lucent Enterprise\OpenTouch Conversation\OpenTouchConversation.exe")
+	query process|find /i "vivaldi.exe">nul
+	if !errorlevel! equ 1 (echo Starting Vivaldi & start "Vivaldi" "%UserProfile%\AppData\Local\Vivaldi\Application\vivaldi.exe")
 
 	date /t > %~dp0vpn-flag
 
