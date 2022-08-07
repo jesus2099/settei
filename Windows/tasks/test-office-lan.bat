@@ -10,27 +10,27 @@ if %errorlevel% equ 0 ipconfig|find "Masque de sous-réseau. . . . . . . . . : 25
 if %errorlevel% equ 0 ipconfig|find "Passerelle par défaut. . . . . . . . . : 192.168.0.1"
 set _home=%errorlevel%
 
-ping -n 1 github.com
+ping github.com
 set _github=%errorlevel%
 
-ping -n 1 ymail.com
+ping gmail.com
+set _gmail=%errorlevel%
+
+ping ymail.com
 set _ymail=%errorlevel%
 
-echo home, ymail.com, github.com: %_home%%_ymail%%_github%
+set _location=other
 
-set _location=end
-
-if %_home%%_github%%_ymail% == 000 set _location=home
-if %_home%%_github%%_ymail% == 101 set _location=office
-if %_home%%_github%%_ymail% == 111 set _location=offline
-if %_home%%_github%%_ymail% == 100 set _location=other
+if %_home%%_github%%_gmail%%_ymail% == 0000 set _location=home
+if %_home%%_github%%_gmail%%_ymail% == 1011 set _location=office
+if %_home%%_github%%_gmail%%_ymail% == 1111 set _location=offline
 
 (
 	echo ----------
 	echo.
 	date /t
 	time /t
-	echo %_location%
+	echo %_location% ^(home, github.com, gmail.com, ymail.com: %_home%%_github%%_gmail%%_ymail%^)
 	echo.
 ) >>%~dpn0.log
 
