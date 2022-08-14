@@ -3,11 +3,12 @@ setlocal
 
 del %~dp0_vpn-flag
 
-                      ipconfig|find "Suffixe DNS propre à la connexion. . . : numericable.fr"
+rem Code Page 850
+                      ipconfig|find "Suffixe DNS propre … la connexion. . . : numericable.fr"
 if %errorlevel% equ 0 ipconfig|find "Adresse IPv6 de liaison locale. . . . .: fe80::"
 if %errorlevel% equ 0 ipconfig|find "Adresse IPv4. . . . . . . . . . . . . .: 192.168.0."
-if %errorlevel% equ 0 ipconfig|find "Masque de sous-réseau. . . . . . . . . : 255.255.255.0"
-if %errorlevel% equ 0 ipconfig|find "Passerelle par défaut. . . . . . . . . : 192.168.0.1"
+if %errorlevel% equ 0 ipconfig|find "Masque de sous-r‚seau. . . .ÿ. . . . . : 255.255.255.0"
+if %errorlevel% equ 0 ipconfig|find "Passerelle par d‚faut. . . .ÿ. . . . . : 192.168.0.1"
 set _home=%errorlevel%
 
 ping github.com
