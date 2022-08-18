@@ -63,7 +63,7 @@ goto end
 :home
 
 query process|find /i "move mouse.exe">NUL
-if %errorlevel% equ 1 (echo Starting Move Mouse ^(anti lock^) & start "Move Mouse" shell:appsfolder\1258EllAbi.MoveMouse_hjfwaxvfbwh7t!MyDesktopAppStep1)
+if %errorlevel% equ 1 (echo Starting Move Mouse ^(anti lock^) & start "Move Mouse" "%UserProfile%\Documents\PRG\Move Mouse.exe")
 
 :online
 
