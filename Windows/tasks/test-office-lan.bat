@@ -6,7 +6,7 @@ del %~dp0_vpn-flag
 (
 	echo.
 	echo ----------
-	echo %~nx0 version 2022-08-18 version %~t0
+	echo %~nx0 version %~t0
 	echo.
 	date /t
 	time /t
