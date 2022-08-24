@@ -51,7 +51,7 @@ ping ymail.com
 set _ymail=%errorlevel%
 
 set _location=offline
-if %_github%%_gmail%%_ymail% not 111 set _location=online
+if not %_github%%_gmail%%_ymail% == 111 set _location=online
 
 goto %_location%
 
