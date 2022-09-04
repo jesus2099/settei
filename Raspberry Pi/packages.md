@@ -9,16 +9,24 @@ Raspbian (apt)
 - audacious
 - audacity
 - baobab (though I prefer ncdu actually)
+- cifs-utils
 - dosfstools
+- dvdbackup
+- ffmpeg
 - firefox-esr (although it is really more stable to use Raspbian modded Chromium)
 - geany
+- git
 - git-cola (I am looking for a better alternative to Tortoise Git than git-cola)
+- handbrake
 - htop
 - httpie
+- jdupes
+- libdvdcss2
 - nano
 - ncdu
 - nfs-common
 - ntfs-3g
+- numlockx
 - pavucontrol (to fix when pulseaudio sends sound to analog instead of hdmi)
 - pgcli (to query musicbrainz-docker PG database)
 - pinout (I think it is included)
@@ -26,12 +34,9 @@ Raspbian (apt)
 - schism
 - sonaar
 - thunderbird
+- tig
 - vlc
-
-Python (pip)
-------
-
-- youtube-dl (pip install --upgrade youtube-dl)
+- yoshimi
 
 
 Manual installs
@@ -39,8 +44,6 @@ Manual installs
 
 yt-dlp
 ------
-
-Replaces youtube-dl.
 
 Install:
 
