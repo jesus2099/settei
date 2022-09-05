@@ -41,6 +41,15 @@ goto %_location%
 
 :other
 
+(
+	echo.
+	echo -- ipconfig -----------------------------------------------------------
+	ipconfig
+	echo.
+	echo ----------------------------------------------------------- ipconfig --
+	echo.
+) >> %~dpn0.log
+
 ping github.com
 set _github=%errorlevel%
 
