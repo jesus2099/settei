@@ -34,7 +34,7 @@ if not exist %~dp0_vpn-flag (
 	if !errorlevel! equ 1 (echo Starting Outlook & start "Outlook" "%ProgramFiles% (x86)\Microsoft Office\Office16\OUTLOOK.EXE")
 
 	query process|find /i "vivaldi.exe">nul
-	if !errorlevel! equ 1 (echo Starting Vivaldi & start "Vivaldi" "%UserProfile%\AppData\Local\Vivaldi\Application\vivaldi.exe")
+	if !errorlevel! equ 1 (echo Starting Vivaldi & start "Vivaldi" "%LocalAppData%\Programs\Vivaldi\Application\vivaldi.exe")
 
 	date /t > %~dp0_vpn-flag
 
