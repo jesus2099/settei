@@ -1,22 +1,16 @@
-foo_ac3.dll (2014-05-30 17:00:09 UTC)
-    AC3 decoder 0.9.7
-foo_adpcm.dll (2015-01-29 09:22:36 UTC)
-    kode's ADPCM decoders 1.11
-foo_audioscrobbler.dll (2013-11-07 08:05:49 UTC)
-    Audioscrobbler 1.4.7
-foo_dynamic_range.dll (2013-11-15 15:15:00 UTC)
-    Dynamic Range Meter 1.1.1
-foo_keep_queue.dll (2015-03-20 16:08:40 UTC)
+foo_ac3.dll (2019-01-31 22:22:38 UTC)
+    AC3 decoder 0.9.13
+foo_input_vgmstream.dll (2022-09-16 20:10:32 UTC)
+    vgmstream plugin r1776-73-g8c3ca400
+foo_keep_queue.dll (2010-11-12 02:28:46 UTC)
     Keep Queue 0.3.5
-foo_lock.dll (2015-03-20 16:07:15 UTC)
-    Pause on Lock 0.5
-foo_musicbrainz.dll (2013-11-08 12:56:54 UTC)
-    MusicBrainz Tagger 0.3
-foo_run.dll (2014-11-16 23:44:54 UTC)
-    Run services 0.3.7
-foo_texttools.dll (2013-11-08 12:56:11 UTC)
-    Text Tools 1.0.5
-foo_tfsandbox.dll (2015-03-20 16:08:25 UTC)
-    Title Formatting Sandbox 1.0.1
-foo_uie_wsh_panel_mod.dll (2013-11-20 10:11:38 UTC)
-    WSH Panel Mod 1.5.6
+foo_lock.dll (2020-02-28 12:34:18 UTC)
+    Pause on Lock 0.8
+foo_musicbrainz.dll (2021-05-12 11:09:18 UTC)
+    MusicBrainz Tagger 0.4.7
+foo_run.dll (2022-09-19 09:12:20 UTC)
+    Run services 0.4.5
+foo_texttools.dll (2022-09-16 09:00:30 UTC)
+    Text Tools 1.1
+foo_tfsandbox.dll (2016-12-14 19:48:26 UTC)
+    Title Formatting Sandbox 1.0.3
