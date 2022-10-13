@@ -71,6 +71,31 @@ goto end
 
 :home
 
+for /f "skip=1" %%a in ('wmic Path Win32_Battery Get BatteryStatus') do for %%b in (2 6 7 8) do if %%a == %%b goto power
+
+rem my laptop only knows statuses 1 for battery and 2 for power cord
+rem https://learn.microsoft.com/windows/win32/cimwin32prov/win32-battery
+rem Other (1) The battery is discharging.
+rem Unknown (2) The system has access to AC so no battery is being discharged. However, the battery is not necessarily charging.
+rem Fully Charged (3)
+rem Low (4)
+rem Critical (5)
+rem Charging (6)
+rem Charging and High (7)
+rem Charging and Low (8)
+rem Charging and Critical (9)
+rem Undefined (10)
+rem Partially Charged (11)
+
+:battery
+
+echo On battery
+
+goto online
+
+:power
+
+echo Power connected
 query process|find /i "move mouse.exe">NUL
 if %errorlevel% equ 1 (echo Starting Move Mouse ^(anti lock^) & start "Move Mouse" "%UserProfile%\Documents\PRG\Move Mouse.exe")
 
