@@ -14,6 +14,10 @@ function replay {
 		echo -e "No arguments specified. Usage:\n${FUNCNAME[0]} replay-web-page-url(s)"
 		return 1
 	fi
-	# both omxplayer and vlc are hardware accelerated on Raspberry Pi
-	vlc --fullscreen `yt-dlp --get-url --format best[ext=mp4]/best $@`
+	url=$(yt-dlp --get-url --format best[ext=mp4]/best $@)
+	if [ $? -eq 0 ]
+	then
+		# both omxplayer and vlc are hardware accelerated on Raspberry Pi
+		vlc ${url}
+	fi
 }
