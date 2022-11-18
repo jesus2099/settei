@@ -3,11 +3,20 @@ setlocal enabledelayedexpansion
 
 if not exist %~dp0_vpn-flag (
 
-	query process|find /i "teams.exe">nul
-	if !errorlevel! equ 1 (
-		choice /c yn /d y /t 4 /m "Start Teams"
+	choice /c yn /d y /t 4 /m "Start Teams and OpenTouch Conversation"
+	set _startCommunications=!errorlevel!
+
+	query process|find /i "vivaldi.exe">nul
+	if !errorlevel! equ 1 (echo Starting Vivaldi... & start "Vivaldi" "%LocalAppData%\Programs\Vivaldi\Application\vivaldi.exe")
+
+	query process|find /i "outlook.exe">nul
+	if !errorlevel! equ 1 (echo Starting Outlook... & start "Outlook" "%ProgramFiles% (x86)\Microsoft Office\Office16\OUTLOOK.EXE")
+
+	if !_startCommunications! equ 1 (
+
+		query process|find /i "teams.exe">nul
 		if !errorlevel! equ 1 (
-			echo Starting Teams
+			echo Starting Teams...
 			rem Teams.exe often leaves command window open with some error logs
 			rem start "Teams" "%LocalAppData%\Microsoft\Teams\current\Teams.exe"
 			rem This works good but requires nrcmd.exe (excellent tool)
@@ -19,22 +28,14 @@ if not exist %~dp0_vpn-flag (
 			cscript "!_hiddenLauncher!" //nologo
 			del "!_hiddenLauncher!"
 		)
-	)
 
-	query process|find /i "opentouchcon...">nul
-	if !errorlevel! equ 1 (
-		choice /c yn /d y /t 4 /m "Start OpenTouch"
+		query process|find /i "opentouchcon...">nul
 		if !errorlevel! equ 1 (
-			echo Starting OpenTouch Conversation
+			echo Starting OpenTouch Conversation...
 			start "OpenTouch Conversation" "%ProgramFiles% (x86)\Alcatel-Lucent Enterprise\OpenTouch Conversation\OpenTouchConversation.exe"
 		)
+
 	)
-
-	query process|find /i "outlook.exe">nul
-	if !errorlevel! equ 1 (echo Starting Outlook & start "Outlook" "%ProgramFiles% (x86)\Microsoft Office\Office16\OUTLOOK.EXE")
-
-	query process|find /i "vivaldi.exe">nul
-	if !errorlevel! equ 1 (echo Starting Vivaldi & start "Vivaldi" "%LocalAppData%\Programs\Vivaldi\Application\vivaldi.exe")
 
 	date /t > %~dp0_vpn-flag
 
