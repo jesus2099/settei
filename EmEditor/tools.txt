@@ -1,0 +1,13 @@
+
+Commit
+------
+
+C:\Program Files\TortoiseGit\bin\TortoiseGitProc.exe
+/command:commit /path:"$(Path)"
+
+
+Log
+---
+
+C:\Program Files\TortoiseGit\bin\TortoiseGitProc.exe
+/command:log /path:"$(Path)"
