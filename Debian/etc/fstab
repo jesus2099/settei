@@ -1,0 +1,4 @@
+#<ip>:/volume1/<share> /media/<server>/<share>-nfs nfs defaults,user,auto,noatime,intr 0 0
+#<ip>:/volume1/<share> /media/<server>/<share> nfs rsize=8192,wsize=8192,timeo=14,intr 0 0
+#//<ip>/<share>    /media/<server>/<share>    cifs user,rw,uid=1000,gid=1000,credentials=/home/<user>/.<server>cifs 0 0
+//<ip>/<share>   /media/<server>/<share>   cifs user,rw,uid=<user>,gid=<user>,credentials=/home/<user>/.<server>cifs 0 0
