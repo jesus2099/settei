@@ -4,7 +4,6 @@ Packages
 Raspbian (apt)
 --------
 
-- adb (to remotely debug Android Firefox 68)
 - audacious
 - audacity
 - cifs-utils

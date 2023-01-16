@@ -4,7 +4,6 @@ Packages (apt)
 ========
 
 - abcde
-- adb (to remotely debug Android Firefox 68)
 - audacious
 - audacity
 - catfish
