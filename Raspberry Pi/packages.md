@@ -4,16 +4,13 @@ Packages
 Raspbian (apt)
 --------
 
-- abcde
 - adb (to remotely debug Android Firefox 68)
 - audacious
 - audacity
-- baobab (though I prefer ncdu actually)
 - cifs-utils
 - dosfstools
 - dvdbackup
 - ffmpeg
-- firefox-esr (although it is really more stable to use Raspbian modded Chromium)
 - geany
 - git
 - git-cola (I am looking for a better alternative to Tortoise Git than git-cola)
@@ -28,13 +25,16 @@ Raspbian (apt)
 - ntfs-3g
 - numlockx
 - pavucontrol (to fix when pulseaudio sends sound to analog instead of hdmi)
+- pdfarranger
 - pgcli (to query musicbrainz-docker PG database)
 - pinout (I think it is included)
 - rpi-imager
 - schism
 - sonaar
-- thunderbird
+- sylpheed (a LOT faster than thunderbird)
+- thunderbird (ULTRA slow)
 - tig
+- tree
 - vlc
 - yoshimi
 
