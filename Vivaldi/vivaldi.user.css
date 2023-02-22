@@ -19,7 +19,7 @@ We can no longer do it in Vivaldi, latest version.
 
 Work-around by @luetage https://forum.vivaldi.net/post/587963
 */
-
+/* FIXED in 5.7.2921.53 (Stable channel) (64-bit) or earlier
 #modal-bg {
 	user-select: all;
-}
+} */
