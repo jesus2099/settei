@@ -2,17 +2,10 @@ Vivaldi setup
 =============
 
 
-Extensions
-----------
+Mouse Gestures
+--------------
 
-- Duplicate Tabs Closer https://chrome.google.com/webstore/detail/duplicate-tabs-closer/gnmdbogfankgjepgglmmfmbnimcmcjle
-- JSON Formatter https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa
-- Linkclump https://chrome.google.com/webstore/detail/linkclump/lfpjkncokllnfokkgpkobnkbkmelfefj
-- Proxy SwitchyOmega https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif
-- Stylus https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne
-- uBlock Origin https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm
-- Ultimate Enable Right Click ─ Allow Copy https://chrome.google.com/webstore/detail/ultimate-enable-right-cli/emfeppdfcjnldjgmofdkbggeacapegen
-- Violentmonkey https://chrome.google.com/webstore/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag
+- Duplicate Selected Tabs: DOWN UP (like in Opera 12)
 
 
 Searches
@@ -30,3 +23,16 @@ Searches
 - MusicBrainz URL search: mbu `http://mb.lmfao.org.uk/urlsearch/?url=%s&partial=on`
 - Twitter Join Date (first post): t `http://www.twitterjoindate.com/search?utf8=%E2%9C%93&name=%s`
 - ヤフオク: yo `https://auctions.yahoo.co.jp/search/search?auccat=22152&tab_ex=commerce&ei=utf-8&aq=-1&oq=&sc_i=&exflg=1&p=%s&x=0&y=0&fixed=0`
+
+
+Extensions
+----------
+
+- Duplicate Tabs Closer https://chrome.google.com/webstore/detail/duplicate-tabs-closer/gnmdbogfankgjepgglmmfmbnimcmcjle
+- JSON Formatter https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa
+- Linkclump https://chrome.google.com/webstore/detail/linkclump/lfpjkncokllnfokkgpkobnkbkmelfefj
+- Proxy SwitchyOmega https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif
+- Stylus https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne
+- uBlock Origin https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm
+- Ultimate Enable Right Click ─ Allow Copy https://chrome.google.com/webstore/detail/ultimate-enable-right-cli/emfeppdfcjnldjgmofdkbggeacapegen
+- Violentmonkey https://chrome.google.com/webstore/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag
