@@ -16,6 +16,3 @@ Nice Apps
 - https://play.google.com/store/apps/details?id=io.yuka.android
 - https://play.google.com/store/apps/details?id=org.crape.rotationcontrol
 - https://play.google.com/store/apps/details?id=uk.co.nickfines.RealCalc
-
-
-

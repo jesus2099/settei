@@ -4,7 +4,6 @@ Nice applications
 Most of them can be installed in %LocalAppData%\Programs without special rights.
 
 - Audacity https://audacityteam.org
-- Auto Dark Mode https://github.com/Armin2208/Windows-Auto-Night-Mode
 - BabelMap https://babelstone.co.uk/Software/BabelMap.html
 - BabelPad https://babelstone.co.uk/Software/BabelPad.html
 - EmEditor (paid) https://www.emeditor.com
