@@ -20,7 +20,7 @@ rem Define LF variable containing a linefeed (0x0A)
 set LF=^
 
 
-rem Above 2 blank lines are critical - do not remove NICHT
+rem Above 2 blank lines are critical
 rem Define CR variable containing a carriage return (0x0D)
 for /f %%a in ('copy /z "%~dpf0" nul') do set "CR=%%a"
 rem -----------------------------------------------------------------------
@@ -30,7 +30,7 @@ ipconfig | findstr /rc:"^   Suffixe DNS propre … la connexion.*: numericable\.fr
 set _home=%errorlevel%
 
 rem Code Page 850
-ipconfig | findstr /rc:"^   Suffixe DNS propre … la connexion.*: fr.*\.ad\..*ance\.fr!CR!!LF!   Adresse IPv6 de liaison locale.*: fe80::" >> %~dpn0.log
+ipconfig | findstr /rc:"^   Suffixe DNS propre … la connexion.*: fr.*\.ad\.[fiancer]*\.fr!CR!!LF!   Adresse IPv6 de liaison locale.*: fe80::" >> %~dpn0.log
 set _office=%errorlevel%
 
 set _location=other

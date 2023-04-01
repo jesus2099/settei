@@ -6,15 +6,15 @@ if not exist %~dp0_vpn-flag (
 	choice /c yn /d y /t 4 /m "Start Teams and OpenTouch Conversation"
 	set _startCommunications=!errorlevel!
 
-	query process|find /i "vivaldi.exe">nul
+	query process | find /i "vivaldi.exe">nul
 	if !errorlevel! equ 1 (echo Starting Vivaldi... & start "Vivaldi" "%LocalAppData%\Programs\Vivaldi\Application\vivaldi.exe")
 
-	query process|find /i "outlook.exe">nul
+	query process | find /i "outlook.exe">nul
 	if !errorlevel! equ 1 (echo Starting Outlook... & start "Outlook" "%ProgramFiles%\Microsoft Office\root\Office16\OUTLOOK.EXE")
 
 	if !_startCommunications! equ 1 (
 
-		query process|find /i "teams.exe">nul
+		query process | find /i "teams.exe">nul
 		if !errorlevel! equ 1 (
 			echo Starting Teams...
 			rem Teams.exe often leaves command window open with some error logs
@@ -29,7 +29,7 @@ if not exist %~dp0_vpn-flag (
 			del "!_hiddenLauncher!"
 		)
 
-		query process|find /i "opentouchcon...">nul
+		query process | find /i "opentouchcon...">nul
 		if !errorlevel! equ 1 (
 			echo Starting OpenTouch Conversation...
 			start "OpenTouch Conversation" "%ProgramFiles% (x86)\Alcatel-Lucent Enterprise\OpenTouch Conversation\OpenTouchConversation.exe"
