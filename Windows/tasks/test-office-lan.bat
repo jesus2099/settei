@@ -30,8 +30,12 @@ ipconfig | findstr /rc:"^   Suffixe DNS propre … la connexion.*: numericable\.fr
 set _home=%errorlevel%
 
 rem Code Page 850
-ipconfig | findstr /rc:"^   Suffixe DNS propre … la connexion.*: fr.*\.ad\.[fiancer]*\.fr!CR!!LF!   Adresse IPv6 de liaison locale.*: fe80::" >> %~dpn0.log
-set _office=%errorlevel%
+for /f "tokens=11 delims= " %%a in ('ipconfig ^| findstr /nrc:"Suffixe DNS propre … la connexion[. ]*: fr.*\.ad\.[fiancer]*\.fr$"') do set _dns=%%a
+
+if defined _dns (
+	ping %_dns%
+	set _office=!errorlevel!
+)
 
 set _location=other
 if %_home%%_office% == 01 set _location=home
@@ -40,15 +44,6 @@ if %_home%%_office% == 10 set _location=office
 goto %_location%
 
 :other
-
-(
-	echo.
-	echo -- ipconfig -----------------------------------------------------------
-	ipconfig
-	echo.
-	echo ----------------------------------------------------------- ipconfig --
-	echo.
-) >> %~dpn0.log
 
 ping github.com
 set _github=%errorlevel%
