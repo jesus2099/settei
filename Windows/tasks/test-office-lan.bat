@@ -61,10 +61,16 @@ goto %_location%
 
 :office
 
+echo Starting Caffeine off
+start "Caffeine" "%LocalAppData%\Programs\caffeine64.exe" -stes -onac -notwhenlocked -startoff -replace
+
 call %~dp0\start-office-apps.bat
 goto end
 
 :home
+
+echo Starting Caffeine on ^(keep PC awake^)
+start "Caffeine" "%LocalAppData%\Programs\caffeine64.exe" -stes -onac -notwhenlocked -replace
 
 for /f "skip=1" %%a in ('wmic Path Win32_Battery Get BatteryStatus') do for %%b in (2 6 7 8) do if %%a == %%b goto power
 
@@ -91,8 +97,6 @@ goto online
 :power
 
 echo Power connected
-query process|find /i "move mouse.exe">NUL
-if %errorlevel% equ 1 (echo Starting Move Mouse ^(anti lock^) & start "Move Mouse" "%UserProfile%\Documents\PRG\Move Mouse.exe")
 
 :online
 
