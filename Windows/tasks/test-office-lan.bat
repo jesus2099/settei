@@ -33,7 +33,7 @@ set _home=%errorlevel%
 for /f "tokens=11 delims= " %%a in ('ipconfig ^| findstr /nrc:"Suffixe DNS propre … la connexion[. ]*: fr.*\.ad\.[fiancer]*\.fr$"') do set _dns=%%a
 
 if defined _dns (
-	ping %_dns%
+	ping -n 2 %_dns%
 	set _office=!errorlevel!
 )
 
@@ -45,13 +45,13 @@ goto %_location%
 
 :other
 
-ping github.com
+ping -n 2 github.com
 set _github=%errorlevel%
 
-ping gmail.com
+ping -n 2 gmail.com
 set _gmail=%errorlevel%
 
-ping ymail.com
+ping -n 2 ymail.com
 set _ymail=%errorlevel%
 
 set _location=offline
