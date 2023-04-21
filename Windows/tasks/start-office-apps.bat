@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-if not exist %~dp0_vpn-flag (
+if not exist "%~dp0_vpn-flag" (
 
 	choice /c yn /d y /t 4 /m "Start Teams and OpenTouch Conversation"
 	set _startCommunications=!errorlevel!
@@ -37,6 +37,6 @@ if not exist %~dp0_vpn-flag (
 
 	)
 
-	date /t > %~dp0_vpn-flag
+	date /t > "%~dp0_vpn-flag"
 
 )

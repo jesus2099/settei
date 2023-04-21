@@ -1,7 +1,7 @@
 @echo off
 setlocal enableDelayedExpansion
 
-del %~dp0_vpn-flag
+del "%~dp0_vpn-flag"
 
 (
 	echo.
@@ -10,7 +10,7 @@ del %~dp0_vpn-flag
 	echo.
 	date /t
 	time /t
-) >> %~dpn0.log
+) >> "%~dpn0.log"
 
 rem -----------------------------------------------------------------------
 rem https://ss64.com/nt/findstr.html
@@ -25,9 +25,9 @@ rem Define CR variable containing a carriage return (0x0D)
 for /f %%a in ('copy /z "%~dpf0" nul') do set "CR=%%a"
 rem -----------------------------------------------------------------------
 
-mode con cp select=850 > nul 2>> %~dpn0.log
+mode con cp select=850 > nul 2>> "%~dpn0.log"
 
-ipconfig | findstr /rc:"^   Suffixe DNS propre … la connexion.*: numericable\.fr!CR!*!LF!   Adresse IPv6 de liaison locale.*: fe80::.*!CR!*!LF!   Adresse IPv4.*: 192\.168\.0\..*!CR!*!LF!   Masque de sous-r‚seau.*: 255\.255\.255\.0!CR!*!LF!   Passerelle par d‚faut.*: 192\.168\.0\.1$" >> %~dpn0.log
+ipconfig | findstr /rc:"^   Suffixe DNS propre … la connexion.*: numericable\.fr!CR!*!LF!   Adresse IPv6 de liaison locale.*: fe80::.*!CR!*!LF!   Adresse IPv4.*: 192\.168\.0\..*!CR!*!LF!   Masque de sous-r‚seau.*: 255\.255\.255\.0!CR!*!LF!   Passerelle par d‚faut.*: 192\.168\.0\.1$" >> "%~dpn0.log"
 set _home=%errorlevel%
 
 for /f "tokens=11 delims= " %%a in ('ipconfig ^| findstr /nrc:"Suffixe DNS propre … la connexion[. ]*: fr.*\.ad\.[fiancer]*\.fr$"') do set _dns=%%a
@@ -64,7 +64,7 @@ goto %_location%
 echo Starting Caffeine off
 start "Caffeine" "%LocalAppData%\Programs\caffeine64.exe" -stes -onac -notwhenlocked -startoff -replace
 
-call %~dp0\start-office-apps.bat
+call "%~dp0\start-office-apps.bat"
 goto end
 
 :home
@@ -107,5 +107,5 @@ goto end
 
 :end
 
-echo location: %_location% >> %~dpn0.log
-echo errorlevels ^(home, office, github.com, gmail.com, ymail.com^): %_home%.%_office%.%_github%.%_gmail%.%_ymail% >> %~dpn0.log
+echo location: %_location% >> "%~dpn0.log"
+echo errorlevels ^(home, office, github.com, gmail.com, ymail.com^): %_home%.%_office%.%_github%.%_gmail%.%_ymail% >> "%~dpn0.log"
