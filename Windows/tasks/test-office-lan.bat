@@ -35,6 +35,8 @@ for /f "tokens=11 delims= " %%a in ('ipconfig ^| findstr /nrc:"Suffixe DNS propr
 if defined _dns (
 	ping -n 2 %_dns%
 	set _office=!errorlevel!
+) else (
+	set _office=1
 )
 
 set _location=other
