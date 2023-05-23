@@ -111,3 +111,8 @@ goto end
 
 echo location: %_location% >> "%~dpn0.log"
 echo errorlevels ^(home, office, github.com, gmail.com, ymail.com^): %_home%.%_office%.%_github%.%_gmail%.%_ymail% >> "%~dpn0.log"
+pslist64 -se System
+choice /c yn /d n /t 6 /m "Restart computer if System (CSAgent.sys) is constantly taking more than 10%% CPU"
+if !errorlevel! equ 1 (
+	shutdown /r /t 0
+)
