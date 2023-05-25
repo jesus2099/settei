@@ -47,7 +47,7 @@ SynoCommunity
 
 Location: http://packages.synocommunity.com
 
-- ffmpeg (installed in /usr/local/ffmpeg/bin/ffmpeg)
+- ffmpeg -- [installed in `/usr/local/ffmpeg/bin/ffmpeg`](https://github.com/SynoCommunity/spksrc/wiki/FAQ-FFmpeg)
 - htop
 - ncdu
 - SynoCLI File Tools (includes nano and: jdupes --delete --no-prompt --recurse --param-order /folderKeep /folderDupe1 /folderDupe2)
