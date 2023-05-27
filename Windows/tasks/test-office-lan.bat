@@ -103,6 +103,7 @@ echo Power connected
 :online
 
 start "PingID" "%ProgramFiles% (x86)\Ping Identity\PingID\PingID.exe"
+"%ProgramFiles% (x86)\Common Files\Pulse Secure\JamUI\Pulse.exe" -show
 goto end
 
 :offline
