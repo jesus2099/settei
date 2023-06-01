@@ -14,6 +14,7 @@ Nice Apps
 - https://play.google.com/store/apps/details?id=de.moekadu.metronome
 - https://play.google.com/store/apps/details?id=de.moekadu.tuner
 - https://play.google.com/store/apps/details?id=io.yuka.android
+- https://play.google.com/store/apps/details?id=jp.co.xing.spnavi
 - https://play.google.com/store/apps/details?id=jp.go.jnto.jota
 - https://play.google.com/store/apps/details?id=jp.go.nict.voicetra
 - https://play.google.com/store/apps/details?id=org.crape.rotationcontrol
