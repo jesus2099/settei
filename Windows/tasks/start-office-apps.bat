@@ -3,16 +3,13 @@ setlocal enabledelayedexpansion
 
 if not exist "%~dp0_vpn-flag" (
 
-	choice /c yn /d y /t 4 /m "Start Teams and OpenTouch Conversation"
-	set _startCommunications=!errorlevel!
-
 	query process | find /i "vivaldi.exe">nul
 	if !errorlevel! equ 1 (echo Starting Vivaldi... & start "Vivaldi" "%LocalAppData%\Programs\Vivaldi\Application\vivaldi.exe")
 
 	query process | find /i "outlook.exe">nul
 	if !errorlevel! equ 1 (echo Starting Outlook... & start "Outlook" "%ProgramFiles%\Microsoft Office\root\Office16\OUTLOOK.EXE")
 
-	if !_startCommunications! equ 1 (
+	if exist "%~dp0_reachable-flag" (
 
 		query process | find /i "teams.exe">nul
 		if !errorlevel! equ 1 (

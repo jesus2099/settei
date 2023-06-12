@@ -2,6 +2,7 @@
 setlocal enableDelayedExpansion
 
 del "%~dp0_vpn-flag"
+del "%~dp0_reachable-flag"
 
 (
 	echo.
@@ -27,6 +28,18 @@ rem Above 2 blank lines are critical
 rem Define CR variable containing a carriage return (0x0D)
 for /f %%a in ('copy /z "%~dpf0" nul') do set "CR=%%a"
 rem -----------------------------------------------------------------------
+
+rem https://texteditor.com/multiline-text-art/
+echo.
+echo   °°    °° °°°°°°  °°°    °°     °°°°°°  
+echo   ±±    ±± ±±   ±± ±±±±   ±±          ±± 
+echo   ±±    ±± ±±±±±±  ±± ±±  ±±       Ü±±±  
+echo    ²²  ²²  ²²      ²²  ²² ²²       ßß    
+echo     ÛÛÛÛ   ÛÛ      ÛÛ   ÛÛÛÛ       ÛÛ    
+echo.
+choice /c noy /n /d n /t 4 /m "No / Yes / Other: Connected but not reachable"
+set _vpn=!errorlevel!
+if !_vpn! equ 3 date /t > "%~dp0_reachable-flag"
 
 ipconfig | findstr /rc:"^   Suffixe DNS propre … la connexion.*: numericable\.fr!CR!*!LF!   Adresse IPv6 de liaison locale.*: fe80::.*!CR!*!LF!   Adresse IPv4.*: 192\.168\.0\..*!CR!*!LF!   Masque de sous-r‚seau.*: 255\.255\.255\.0!CR!*!LF!   Passerelle par d‚faut.*: 192\.168\.0\.1$" >> "%~dpn0.log"
 set _home=%errorlevel%
@@ -103,8 +116,10 @@ echo Power connected
 
 :online
 
-start "PingID" "%ProgramFiles% (x86)\Ping Identity\PingID\PingID.exe"
-"%ProgramFiles% (x86)\Common Files\Pulse Secure\JamUI\Pulse.exe" -show
+if !_vpn! geq 2 (
+	start "PingID" "%ProgramFiles% (x86)\Ping Identity\PingID\PingID.exe"
+	"%ProgramFiles% (x86)\Common Files\Pulse Secure\JamUI\Pulse.exe" -show
+)
 goto end
 
 :offline
