@@ -12,7 +12,10 @@ del "%~dp0_vpn-flag"
 	time /t
 ) >> "%~dpn0.log"
 
+mode con cp select=850 > nul 2>> "%~dpn0.log"
+
 rem -----------------------------------------------------------------------
+rem CR LF
 rem https://ss64.com/nt/findstr.html
 rem https://ss64.com/nt/findstr-linebreaks.html Searching across Line Breaks: CR and LF characters must be matched explictly
 rem https://ss64.com/nt/findstr-escapes.html Search String length limits: 511 bytes for text / 254 bytes for regular expressions (actually 278 bytes on my PC)
@@ -24,8 +27,6 @@ rem Above 2 blank lines are critical
 rem Define CR variable containing a carriage return (0x0D)
 for /f %%a in ('copy /z "%~dpf0" nul') do set "CR=%%a"
 rem -----------------------------------------------------------------------
-
-mode con cp select=850 > nul 2>> "%~dpn0.log"
 
 ipconfig | findstr /rc:"^   Suffixe DNS propre Ö la connexion.*: numericable\.fr!CR!*!LF!   Adresse IPv6 de liaison locale.*: fe80::.*!CR!*!LF!   Adresse IPv4.*: 192\.168\.0\..*!CR!*!LF!   Masque de sous-rÇseau.*: 255\.255\.255\.0!CR!*!LF!   Passerelle par dÇfaut.*: 192\.168\.0\.1$" >> "%~dpn0.log"
 set _home=%errorlevel%
@@ -112,7 +113,14 @@ goto end
 
 echo location: %_location% >> "%~dpn0.log"
 echo errorlevels ^(home, office, github.com, gmail.com, ymail.com^): %_home%.%_office%.%_github%.%_gmail%.%_ymail% >> "%~dpn0.log"
-pslist64 -se System
+"%LocalAppData%\Programs\PSTools\pslist64.exe" -se System
+echo.
+echo   ∞∞∞∞∞∞  ∞∞∞∞∞∞∞ ∞∞∞∞∞∞∞ ∞∞∞∞∞∞∞∞  ∞∞∞∞∞  ∞∞∞∞∞∞  ∞∞∞∞∞∞∞∞     ∞∞∞∞∞∞  
+echo   ±±   ±± ±±      ±±         ±±    ±±   ±± ±±   ±±    ±±             ±± 
+echo   ±±±±±±  ±±±±±   ±±±±±±±    ±±    ±±±±±±± ±±±±±±     ±±          ‹±±±  
+echo   ≤≤   ≤≤ ≤≤           ≤≤    ≤≤    ≤≤   ≤≤ ≤≤   ≤≤    ≤≤          ﬂﬂ    
+echo   €€   €€ €€€€€€€ €€€€€€€    €€    €€   €€ €€   €€    €€          €€    
+echo.
 choice /c yn /d n /t 6 /m "Restart computer if System (CSAgent.sys) is constantly taking more than 10%% CPU"
 if !errorlevel! equ 1 (
 	shutdown /r /t 0
