@@ -37,7 +37,7 @@ echo   ±±    ±± ±±±±±±  ±± ±±  ±±       ‹±±±
 echo    ≤≤  ≤≤  ≤≤      ≤≤  ≤≤ ≤≤       ﬂﬂ    
 echo     €€€€   €€      €€   €€€€       €€    
 echo.
-choice /c noy /n /d n /t 4 /m "No / Yes / Other: Connected but not reachable"
+choice /c ncy /n /d n /t 8 /m "No / Yes / Connected but not reachable"
 set _vpn=!errorlevel!
 if !_vpn! equ 3 date /t > "%~dp0_reachable-flag"
 
@@ -136,7 +136,7 @@ echo   ±±±±±±  ±±±±±   ±±±±±±±    ±±    ±±±±±±± ±±±±±±     ±±          ‹±±±
 echo   ≤≤   ≤≤ ≤≤           ≤≤    ≤≤    ≤≤   ≤≤ ≤≤   ≤≤    ≤≤          ﬂﬂ    
 echo   €€   €€ €€€€€€€ €€€€€€€    €€    €€   €€ €€   €€    €€          €€    
 echo.
-choice /c yn /d n /t 6 /m "Restart computer if System (CSAgent.sys) is constantly taking more than 10%% CPU"
+choice /c yn /d n /t 8 /m "Restart computer if System (CSAgent.sys) is constantly taking more than 10%% CPU"
 if !errorlevel! equ 1 (
 	shutdown /r /t 0
 )
