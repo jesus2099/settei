@@ -129,6 +129,7 @@ goto end
 echo location: %_location% >> "%~dpn0.log"
 echo errorlevels ^(home, office, github.com, gmail.com, ymail.com^): %_home%.%_office%.%_github%.%_gmail%.%_ymail% >> "%~dpn0.log"
 "%LocalAppData%\Programs\PSTools\pslist64.exe" -se System
+reg query "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa" /v DisableDomainCreds
 echo.
 echo   °°°°°°  °°°°°°° °°°°°°° °°°°°°°°  °°°°°  °°°°°°  °°°°°°°°     °°°°°°  
 echo   ±±   ±± ±±      ±±         ±±    ±±   ±± ±±   ±±    ±±             ±± 
