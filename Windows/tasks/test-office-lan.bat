@@ -42,38 +42,38 @@ set _vpn=!errorlevel!
 if !_vpn! equ 3 date /t > "%~dp0_reachable-flag"
 
 ipconfig | findstr /rc:"^   Suffixe DNS propre … la connexion.*: numericable\.fr!CR!*!LF!   Adresse IPv6 de liaison locale.*: fe80::.*!CR!*!LF!   Adresse IPv4.*: 192\.168\.0\..*!CR!*!LF!   Masque de sous-r‚seau.*: 255\.255\.255\.0!CR!*!LF!   Passerelle par d‚faut.*: 192\.168\.0\.1$" >> "%~dpn0.log"
-set _home=%errorlevel%
+set _home=!errorlevel!
 
 for /f "tokens=11 delims= " %%a in ('ipconfig ^| findstr /nrc:"Suffixe DNS propre … la connexion[. ]*: fr.*\.ad\.[fiancer]*\.fr$"') do set _dns=%%a
 
 if defined _dns (
-	ping -n 2 %_dns%
+	ping -n 2 !_dns!
 	set _office=!errorlevel!
 ) else (
 	set _office=1
 )
 
 set _location=other
-if %_home%%_office% == 01 set _location=home
-if %_home%%_office% == 10 set _location=office
+if !_home!!_office! == 01 set _location=home
+if !_home!!_office! == 10 set _location=office
 
-goto %_location%
+goto !_location!
 
 :other
 
 ping -n 2 github.com
-set _github=%errorlevel%
+set _github=!errorlevel!
 
 ping -n 2 gmail.com
-set _gmail=%errorlevel%
+set _gmail=!errorlevel!
 
 ping -n 2 ymail.com
-set _ymail=%errorlevel%
+set _ymail=!errorlevel!
 
 set _location=offline
-if not %_github%%_gmail%%_ymail% == 111 set _location=online
+if not !_github!!_gmail!!_ymail! == 111 set _location=online
 
-goto %_location%
+goto !_location!
 
 :office
 
@@ -126,8 +126,8 @@ goto end
 
 :end
 
-echo location: %_location% >> "%~dpn0.log"
-echo errorlevels ^(home, office, github.com, gmail.com, ymail.com^): %_home%.%_office%.%_github%.%_gmail%.%_ymail% >> "%~dpn0.log"
+echo location: !_location! >> "%~dpn0.log"
+echo errorlevels ^(home, office, github.com, gmail.com, ymail.com^): !_home!.!_office!.!_github!.!_gmail!.!_ymail! >> "%~dpn0.log"
 "%LocalAppData%\Programs\PSTools\pslist64.exe" -se System
 echo.
 echo   °°°°°°  °°°°°°° °°°°°°° °°°°°°°°  °°°°°  °°°°°°  °°°°°°°°     °°°°°°  
