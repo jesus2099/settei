@@ -141,34 +141,4 @@ if !errorlevel! equ 1 (
 	shutdown /r /t 0
 )
 
-:EnableDomainCreds
-if %_location% equ home (
-	echo.
-	echo ßÛÛßßÛÜ                               ÛÛ                ÜÜÛßßßÜÛ                     ßÛÛ         
-	echo  ÛÛ   ÛÛ    ÜÜÜ   ÜÜ ÜÜ ÜÜ    ÜÜÜÜ   ÜÜÜ  ÜÜ ÜÜÜ      ÜÛß     ß  ÜÜÜ ÜÜ    ÜÜÜÜ    ÜÜ ÛÛ   ÜÜÜÜ  
-	echo  ÛÛ    ÛÛ ÜÛ  ßÛÜ  ÛÛ ÛÛ ÛÛ  ßß ÜÛÛ   ÛÛ   ÛÛ  ÛÛ     ÛÛ          ÛÛß ßß ÜÛÜÜÜÛÛ Üß  ßÛÛ  ÛÛÜ ß  
-	echo  ÛÛ    ÛÛ ÛÛ   ÛÛ  ÛÛ ÛÛ ÛÛ  ÜÛß ÛÛ   ÛÛ   ÛÛ  ÛÛ     ßÛÜ      Ü  ÛÛ     ÛÛ      ÛÜ   ÛÛ  Ü ßÛÜÜ 
-	echo ÜÛÛÜÜÜÛß   ßÛÜÜÛß ÜÛÛ ÛÛ ÛÛÜ ßÛÜÜßÛß ÜÛÛÜ ÜÛÛÜ ÛÛÜ     ßßÛÜÜÜÜß  ÜÛÛÜ     ßÛÜÜÜß ßÛÜÜßÛÛÜ ÛßÜÜÛß 
-	echo.
-	reg query "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa" /v DisableDomainCreds | findstr /c:"DisableDomainCreds    REG_DWORD    0x1"
-	if !errorlevel! equ 0 (
-		echo.
-		echo ADMINISTRATOR NEEDED to re-ENABLE DOMAIN CREDS ^(allow saving network credentials^)...
-		echo.
-		sleep 1
-		(
-			rem runas reg add does not work
-			rem Based on: https://social.technet.microsoft.com/Forums/ie/en-US/792eeec7-0c8e-4e10-a56c-a896ba6684b5/windows-credentials-have-been-disabled-by-administrator-cant-enable#5b99b417-01e1-484d-9439-b49a118dc2d1-isAnswer
-			echo Windows Registry Editor Version 5.00
-			echo [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa]
-			echo "DisableDomainCreds"=dword:00000000 ; enable = 00000000, disable = 00000001
-		) > "%~dpn0_EnableDomainCreds.reg"
-		"%~dpn0_EnableDomainCreds.reg"
-		reg query "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa" /v DisableDomainCreds | findstr /c:"DisableDomainCreds    REG_DWORD    0x1"
-		if !errorlevel! equ 0 (
-			choice /c yn /d n /t 8 /m "Did not work, do you want to retry"
-			if !errorlevel! equ 1 goto EnableDomainCreds
-		)
-		del "%~dpn0_EnableDomainCreds.reg"
-	)
-)
+call enable-domain-creds.bat
