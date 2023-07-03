@@ -29,18 +29,6 @@ rem Define CR variable containing a carriage return (0x0D)
 for /f %%a in ('copy /z "%~dpf0" nul') do set "CR=%%a"
 rem -----------------------------------------------------------------------
 
-rem https://texteditor.com/multiline-text-art/
-echo.
-echo   °°    °° °°°°°°  °°°    °°     °°°°°°  
-echo   ±±    ±± ±±   ±± ±±±±   ±±          ±± 
-echo   ±±    ±± ±±±±±±  ±± ±±  ±±       Ü±±±  
-echo    ²²  ²²  ²²      ²²  ²² ²²       ßß    
-echo     ÛÛÛÛ   ÛÛ      ÛÛ   ÛÛÛÛ       ÛÛ    
-echo.
-choice /c ncy /n /d n /t 8 /m "No / Yes / Connected but not reachable"
-set _vpn=!errorlevel!
-if !_vpn! equ 3 date /t > "%~dp0_reachable-flag"
-
 ipconfig | findstr /rc:"^   Suffixe DNS propre … la connexion.*: numericable\.fr!CR!*!LF!   Adresse IPv6 de liaison locale.*: fe80::.*!CR!*!LF!   Adresse IPv4.*: 192\.168\.0\..*!CR!*!LF!   Masque de sous-r‚seau.*: 255\.255\.255\.0!CR!*!LF!   Passerelle par d‚faut.*: 192\.168\.0\.1$" >> "%~dpn0.log"
 set _home=!errorlevel!
 
@@ -56,6 +44,35 @@ if defined _dns (
 set _location=other
 if !_home!!_office! == 01 set _location=home
 if !_home!!_office! == 10 set _location=office
+
+if !_location! equ office (
+	rem https://texteditor.com/multiline-text-art/
+	echo.
+	echo    _______                             __                __       __                ____  
+	echo   ^|       \                           ^|  \              ^|  \     ^|  \              /    \ 
+	echo   ^| ²²²²²²²\ ______   ______   _______^| ²²____   ______ ^| ²²____ ^| ²² ______      ^|  ²²²²\
+	echo   ^| ²²__^| ²²/      \ ^|      \ /       \ ²²    \ ^|      \^| ²²    \^| ²²/      \      \²²^| ²²
+	echo   ^| ²²    ²²  ²²²²²²\ \²²²²²²\  ²²²²²²² ²²²²²²²\ \²²²²²²\ ²²²²²²²\ ²²  ²²²²²²\       /  ²²
+	echo   ^| ²²²²²²²\ ²²    ²²/      ²² ²²     ^| ²²  ^| ²²/      ²² ²²  ^| ²² ²² ²²    ²²      ^|  ²² 
+	echo   ^| ²²  ^| ²² ²²²²²²²²  ²²²²²²² ²²_____^| ²²  ^| ²²  ²²²²²²² ²²__/ ²² ²² ²²²²²²²²       \²²  
+	echo   ^| ²²  ^| ²²\²²     \\²²    ²²\²²     \ ²²  ^| ²²\²²    ²² ²²    ²² ²²\²²     \      ^|  \  
+	echo    \²²   \²² \²²²²²²² \²²²²²²² \²²²²²²²\²²   \²² \²²²²²²²\²²²²²²² \²² \²²²²²²²       \²²  
+	echo.
+	choice /c yn /n /d y /t 8 /m "[Yes] / No"
+	set _vpn=!errorlevel!
+) else (
+	echo.
+	echo   °°    °° °°°°°°  °°°    °°     °°°°°°  
+	echo   ±±    ±± ±±   ±± ±±±±   ±±          ±± 
+	echo   ±±    ±± ±±±±±±  ±± ±±  ±±       Ü±±±  
+	echo    ²²  ²²  ²²      ²²  ²² ²²       ßß    
+	echo     ÛÛÛÛ   ÛÛ      ÛÛ   ÛÛÛÛ       ÛÛ    
+	echo.
+	choice /c ync /n /d n /t 8 /m "Yes / [No] / Connected but not reachable"
+	set _vpn=!errorlevel!
+)
+
+if !_vpn! equ 1 date /t > "%~dp0_reachable-flag"
 
 goto !_location!
 
@@ -116,7 +133,7 @@ echo Power connected
 
 :online
 
-if !_vpn! geq 2 (
+if !_vpn! neq 2 (
 	start "PingID" "%ProgramFiles% (x86)\Ping Identity\PingID\PingID.exe"
 	"%ProgramFiles% (x86)\Common Files\Pulse Secure\JamUI\Pulse.exe" -show
 )
