@@ -158,4 +158,4 @@ if !errorlevel! equ 1 (
 	shutdown /r /t 0
 )
 
-call enable-domain-creds.bat
+call "%~dp0enable-domain-creds.bat"
