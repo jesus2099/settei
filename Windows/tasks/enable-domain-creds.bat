@@ -56,7 +56,7 @@ if !_home! equ 0 (
 		reg query "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa" /v DisableDomainCreds >> "%~dpn0.log"
 		reg query "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa" /v DisableDomainCreds | findstr /c:"DisableDomainCreds    REG_DWORD    0x1"
 		if !errorlevel! equ 0 (
-			choice /c yn /d n /t 8 /m "Did not work, do you want to retry"
+			choice /c yn /d y /t 128 /m "Did not work, do you want to retry"
 			if !errorlevel! equ 1 goto EnableDomainCreds
 		)
 		del "%~dpn0.reg"
