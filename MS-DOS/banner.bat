@@ -19,14 +19,14 @@ if not defined _text goto show_banner
 set _text=%_text:~1%
 set _topline=%_topline%д
 set _bottomline=%_bottomline%м
-set /a "_text_length=_text_length+1"
+set /a "_text_length+=1"
 
 goto buildline
 
 :show_banner
 
 echo.
-set /a "_text_length=_text_length+4"
+set /a "_text_length+=4"
 if %_text_length% leq %_cols% (
 	rem single line banner
 	echo зд%_topline%д©
