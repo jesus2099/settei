@@ -22,6 +22,7 @@ Most of them can be installed in `%LocalAppData%\Programs` and shortcuts in `%Ap
 - TreeSize Free https://www.jam-software.com/treesize_free
 - Vivaldi https://vivaldi.com
 - Windows Terminal
+- XMPlay https://un4seen.com/xmplay.html
 - yt-dlp https://github.com/yt-dlp/yt-dlp
 
 
