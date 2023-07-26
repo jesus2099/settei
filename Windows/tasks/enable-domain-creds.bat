@@ -52,11 +52,11 @@ if !_home! equ 0 (
 			echo [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa]
 			echo "DisableDomainCreds"=dword:00000000 ; enable = 00000000, disable = 00000001
 		) > "%~dpn0.reg"
-		"%~dpn0.reg"
+		regedit /s "%~dpn0.reg"
 		reg query "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa" /v DisableDomainCreds >> "%~dpn0.log"
 		reg query "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa" /v DisableDomainCreds | findstr /c:"DisableDomainCreds    REG_DWORD    0x1"
 		if !errorlevel! equ 0 (
-			choice /c yn /d y /t 128 /m "Did not work, do you want to retry"
+			choice /c yn /d y /t 128 /m "Saving Domain Creds is still disabled. Do you want to retry"
 			if !errorlevel! equ 1 goto EnableDomainCreds
 		)
 		del "%~dpn0.reg"
