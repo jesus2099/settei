@@ -90,11 +90,12 @@ set _ymail=!errorlevel!
 set _location=offline
 if not !_github!!_gmail!!_ymail! == 111 set _location=online
 
+echo goto !_location!
 goto !_location!
 
 :office
 
-echo Starting Caffeine off
+echo Starting Caffeine off...
 start "Caffeine" "%LocalAppData%\Programs\caffeine64.exe" -stes -onac -notwhenlocked -startoff -replace
 
 call "%~dp0\start-office-apps.bat"
@@ -102,7 +103,7 @@ goto end
 
 :home
 
-echo Starting Caffeine on ^(keep PC awake^)
+echo Starting Caffeine on ^(keep PC awake^)...
 start "Caffeine" "%LocalAppData%\Programs\caffeine64.exe" -stes -onac -notwhenlocked -replace
 
 for /f "skip=1" %%a in ('wmic Path Win32_Battery Get BatteryStatus') do for %%b in (2 6 7 8) do if %%a == %%b goto power
@@ -134,17 +135,24 @@ echo Power connected
 :online
 
 if !_vpn! neq 2 (
-	start "PingID" "%ProgramFiles% (x86)\Ping Identity\PingID\PingID.exe"
-	"%ProgramFiles% (x86)\Common Files\Pulse Secure\JamUI\Pulse.exe" -show
+	echo Starting PingID...
+	start "PingID" "%ProgramFiles(x86)%\Ping Identity\PingID\PingID.exe"
+	echo Starting Pulse Secure...
+	start "Pulse Secure" "%ProgramFiles(x86)%\Common Files\Pulse Secure\JamUI\Pulse.exe" -show
 )
+echo goto end
 goto end
 
 :offline
 
 :end
 
+echo location: !_location!
 echo location: !_location! >> "%~dpn0.log"
 echo errorlevels ^(home, office, github.com, gmail.com, ymail.com^): !_home!.!_office!.!_github!.!_gmail!.!_ymail! >> "%~dpn0.log"
+echo Press key when you are ready to check if we need to restart because of CrowdStrike ^(CSAgent.sys^)
+pause >nul
+echo Starting PsList...
 "%LocalAppData%\Programs\PSTools\pslist64.exe" -se System
 echo.
 echo   °°°°°°  °°°°°°° °°°°°°° °°°°°°°°  °°°°°  °°°°°°  °°°°°°°°     °°°°°°  
