@@ -19,7 +19,7 @@ if not exist "%~dp0_vpn-flag" (
 			rem This works good but requires nrcmd.exe (excellent tool)
 			rem %USERPROFILE%\Documents\PRG\DOS\nircmd exec hide "%LocalAppData%\Microsoft\Teams\current\Teams.exe"
 			set _hiddenLauncher=%~dpn0_hiddenLauncher.vbs
-			> "!_hiddenLauncher!" (
+			>"!_hiddenLauncher!" (
 				echo CreateObject^("Wscript.Shell"^).Run """" ^& "%LocalAppData%\Microsoft\Teams\current\Teams.exe" ^& """", 0, False
 			)
 			cscript "!_hiddenLauncher!" //nologo
@@ -34,6 +34,6 @@ if not exist "%~dp0_vpn-flag" (
 
 	)
 
-	date /t > "%~dp0_vpn-flag"
+	date /t >"%~dp0_vpn-flag"
 
 )

@@ -11,9 +11,9 @@ del "%~dp0_reachable-flag"
 	echo.
 	date /t
 	time /t
-) >> "%~dpn0.log"
+) >>"%~dpn0.log"
 
-mode con cp select=850 > nul 2>> "%~dpn0.log"
+mode con cp select=850 >nul 2>>"%~dpn0.log"
 
 rem -----------------------------------------------------------------------
 rem CR LF
@@ -31,7 +31,7 @@ rem -----------------------------------------------------------------------
 
 rem ipconfig|findstr gives random results
 ipconfig >"%~dp0_ipconfig"
-findstr /rc:"!CR!*!LF!!CR!*!LF!   Suffixe DNS propre … la connexion.*: numericable\.fr!CR!*!LF!   Adresse IPv6 de liaison locale.*: fe80::.*!CR!*!LF!   Adresse IPv4.*: 192\.168\.0\..*!CR!*!LF!   Masque de sous-r‚seau.*: 255\.255\.255\.0!CR!*!LF!   Passerelle par d‚faut.*: 192\.168\.0\.1$" "%~dp0_ipconfig" >> "%~dpn0.log"
+findstr /rc:"!CR!*!LF!!CR!*!LF!   Suffixe DNS propre … la connexion.*: numericable\.fr!CR!*!LF!   Adresse IPv6 de liaison locale.*: fe80::.*!CR!*!LF!   Adresse IPv4.*: 192\.168\.0\..*!CR!*!LF!   Masque de sous-r‚seau.*: 255\.255\.255\.0!CR!*!LF!   Passerelle par d‚faut.*: 192\.168\.0\.1$" "%~dp0_ipconfig" >>"%~dpn0.log"
 set _home=!errorlevel!
 del "%~dp0_ipconfig"
 
@@ -75,7 +75,7 @@ if !_location! equ office (
 	set _vpn=!errorlevel!
 )
 
-if !_vpn! equ 1 date /t > "%~dp0_reachable-flag"
+if !_vpn! equ 1 date /t >"%~dp0_reachable-flag"
 
 goto !_location!
 
@@ -151,8 +151,8 @@ goto end
 :end
 
 echo location: !_location!
-echo location: !_location! >> "%~dpn0.log"
-echo errorlevels ^(home, office, github.com, gmail.com, ymail.com^): !_home!.!_office!.!_github!.!_gmail!.!_ymail! >> "%~dpn0.log"
+echo location: !_location! >>"%~dpn0.log"
+echo errorlevels ^(home, office, github.com, gmail.com, ymail.com^): !_home!.!_office!.!_github!.!_gmail!.!_ymail! >>"%~dpn0.log"
 echo Press key when you are ready to check if we need to restart because of CrowdStrike ^(CSAgent.sys^)
 pause >nul
 echo Starting PsList...
