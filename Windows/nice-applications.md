@@ -3,32 +3,65 @@ Nice applications
 
 Most of them can be installed in `%LocalAppData%\Programs` and shortcuts in `%AppData%\Microsoft\Windows\Start Menu\Programs` without special rights.
 
+CD
+--
+
+- Digital CD Player (CD-TEXT) https://www.mlum-factory.com/delphi.html
+- PgcDemux https://download.videohelp.com/jsoto/dvdtools.htm
+- VobBlanker https://download.videohelp.com/jsoto/vobblanker.htm
+
+
+Audio
+-----
+
 - Audacity https://audacityteam.org
+- FLAC https://rarewares.org/lossless.php
+- foobar2000 https://foobar2000.org
+- isrcsubmit http://jonnyjd.github.io/musicbrainz-isrcsubmit/ + https://github.com/JonnyJD/musicbrainz-isrcsubmit/pull/127 + https://github.com/JonnyJD/musicbrainz-isrcsubmit/pull/145/files
+- LAME https://rarewares.org/mp3-lame-bundle.php
+- SoX https://rarewares.org/others.php
+- XMPlay https://un4seen.com/xmplay.html
+
+
+Text
+----
+
 - BabelMap https://babelstone.co.uk/Software/BabelMap.html
 - BabelPad https://babelstone.co.uk/Software/BabelPad.html
-- Caffeine https://zhornsoftware.co.uk/caffeine `caffeine64.exe -onac -stes`
 - EmEditor (paid) https://www.emeditor.com
-- FastStone Capture (trial) https://faststone.org/FSCaptureDetail.htm
-- ffmpeg (nonfree, or gpl, or lgpl, but not shared) https://github.com/BtbN/FFmpeg-Builds/releases
-- Firefox https://mozilla.org/firefox
-- foobar2000 https://foobar2000.org
-- LICEcap https://cockos.com/licecap
-- Move Mouse (currently testing Caffeine instead) https://github.com/sw3103/movemouse
 - NJStar Japanese WP https://njstar.com/cms/njstar-japanese-word-processor
 - PureText https://stevemiller.net/puretext
-- RunAsDate https://nirsoft.net/utils/run_as_date.html
-- Sizer http://brianapps.net/sizer/
 - Textify https://ramensoftware.com/textify
+
+
+Graphics
+--------
+
+- FastStone Capture (trial) https://faststone.org/FSCaptureDetail.htm
+- ffmpeg (nonfree, or gpl, or lgpl, but not shared) https://github.com/BtbN/FFmpeg-Builds/releases
+- LICEcap https://cockos.com/licecap
+- Sizer http://brianapps.net/sizer/
+
+
+Other
+-----
+
+- Caffeine https://zhornsoftware.co.uk/caffeine `caffeine64.exe -onac -stes`
+- Firefox https://mozilla.org/firefox
+- Git for Windows https://gitforwindows.org
+- Move Mouse (currently testing Caffeine instead) https://github.com/sw3103/movemouse
+- RunAsDate https://nirsoft.net/utils/run_as_date.html
 - TreeSize Free https://www.jam-software.com/treesize_free
 - Vivaldi https://vivaldi.com
 - Windows Terminal
-- XMPlay https://un4seen.com/xmplay.html
+- WinMerge https://winmerge.org
 - yt-dlp https://github.com/yt-dlp/yt-dlp
 
 
 Application that require administrator user rights to be installed:
 
-- Git for Windows https://gitforwindows.org
+- DVD Decrypter 3.5.4.0
+- DVD Shrink 3.2.0.15
 - TortoiseGit https://tortoisegit.org
 
 Too bad. :-/
