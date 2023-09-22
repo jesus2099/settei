@@ -44,7 +44,7 @@ if !_home! equ 0 (
 		echo.
 		echo ADMINISTRATOR NEEDED to re-ENABLE DOMAIN CREDS ^(allow saving network credentials^)...
 		echo.
-		sleep 1
+		timeout /t 1 /nobreak >nul
 		(
 			rem runas reg add does not work
 			rem Based on: https://social.technet.microsoft.com/Forums/ie/en-US/792eeec7-0c8e-4e10-a56c-a896ba6684b5/windows-credentials-have-been-disabled-by-administrator-cant-enable#5b99b417-01e1-484d-9439-b49a118dc2d1-isAnswer
