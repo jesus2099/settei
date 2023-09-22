@@ -153,20 +153,6 @@ goto end
 echo location: !_location!
 echo location: !_location! >>"%~dpn0.log"
 echo errorlevels ^(home, office, github.com, gmail.com, ymail.com^): !_home!.!_office!.!_github!.!_gmail!.!_ymail! >>"%~dpn0.log"
-echo Press key when you are ready to check if we need to restart because of CrowdStrike ^(CSAgent.sys^)
-pause >nul
-echo Starting PsList...
-"%LocalAppData%\Programs\PSTools\pslist64.exe" -se System
-echo.
-echo   ∞∞∞∞∞∞  ∞∞∞∞∞∞∞ ∞∞∞∞∞∞∞ ∞∞∞∞∞∞∞∞  ∞∞∞∞∞  ∞∞∞∞∞∞  ∞∞∞∞∞∞∞∞     ∞∞∞∞∞∞  
-echo   ±±   ±± ±±      ±±         ±±    ±±   ±± ±±   ±±    ±±             ±± 
-echo   ±±±±±±  ±±±±±   ±±±±±±±    ±±    ±±±±±±± ±±±±±±     ±±          ‹±±±  
-echo   ≤≤   ≤≤ ≤≤           ≤≤    ≤≤    ≤≤   ≤≤ ≤≤   ≤≤    ≤≤          ﬂﬂ    
-echo   €€   €€ €€€€€€€ €€€€€€€    €€    €€   €€ €€   €€    €€          €€    
-echo.
-choice /c yn /d n /t 8 /m "Restart computer if System (CSAgent.sys) is constantly taking more than 10%% CPU"
-if !errorlevel! equ 1 (
-	shutdown /r /t 0
-)
 
+timeout /t 10
 call "%~dp0enable-domain-creds.bat"
