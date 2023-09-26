@@ -61,7 +61,7 @@ if !_location! equ office (
 	echo   ^| ²²  ^| ²²\²²     \\²²    ²²\²²     \ ²²  ^| ²²\²²    ²² ²²    ²² ²²\²²     \      ^|  \  
 	echo    \²²   \²² \²²²²²²² \²²²²²²² \²²²²²²²\²²   \²² \²²²²²²²\²²²²²²² \²² \²²²²²²²       \²²  
 	echo.
-	choice /c yn /n /d y /t 8 /m "[Yes] / No"
+	choice /c yn /n /d y /t 10 /m "[Yes] / No"
 	set _vpn=!errorlevel!
 ) else (
 	echo.
@@ -71,7 +71,7 @@ if !_location! equ office (
 	echo    ²²  ²²  ²²      ²²  ²² ²²       ßß    
 	echo     ÛÛÛÛ   ÛÛ      ÛÛ   ÛÛÛÛ       ÛÛ    
 	echo.
-	choice /c ync /n /d n /t 8 /m "Yes / [No] / Connected but not reachable"
+	choice /c ync /n /d y /t 10 /m "[Yes] / No / Connected but not reachable"
 	set _vpn=!errorlevel!
 )
 
