@@ -8,6 +8,7 @@ CD
 
 - Digital CD Player (CD-TEXT) https://www.mlum-factory.com/delphi.html
 - PgcDemux https://download.videohelp.com/jsoto/dvdtools.htm
+- TMPGEnc https://www.tmpgenc.net
 - VobBlanker https://download.videohelp.com/jsoto/vobblanker.htm
 
 
