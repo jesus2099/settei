@@ -33,19 +33,11 @@ if not exist "%~dp0_vpn-flag" (
 
 	if exist "%~dp0_reachable-flag" (
 
-		query process | find /i "teams.exe" >nul
+		query process | find /i "ms-teams.exe" >nul
 		if !errorlevel! equ 1 (
 			echo Starting Teams...
-			rem Teams.exe often leaves command window open with some error logs
-			rem start "Teams" "%LocalAppData%\Microsoft\Teams\current\Teams.exe"
-			rem This works good but requires nrcmd.exe (excellent tool)
-			rem %USERPROFILE%\Documents\PRG\DOS\nircmd exec hide "%LocalAppData%\Microsoft\Teams\current\Teams.exe"
-			set _hiddenLauncher=%~dpn0_hiddenLauncher.vbs
-			>"!_hiddenLauncher!" (
-				echo CreateObject^("Wscript.Shell"^).Run """" ^& "%LocalAppData%\Microsoft\Teams\current\Teams.exe" ^& """", 0, False
-			)
-			cscript "!_hiddenLauncher!" //nologo
-			del "!_hiddenLauncher!"
+			rem find app ID by exploring shell:AppsFolder and create shortcut
+			start shell:AppsFolder\MSTeams_8wekyb3d8bbwe^^!MSTeams
 		)
 
 		query process | find /i "opentouchcon..." >nul
