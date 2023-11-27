@@ -9,12 +9,13 @@ if not exist "%~dp0_vpn-flag" (
 			"%LocalAppData%\Vivaldi\Application\vivaldi.exe"
 			"%LocalAppData%\Programs\Vivaldi\Application\vivaldi.exe"
 		) do if exist %%V (
+			echo Starting Vivaldi...
 			start "Vivaldi" %%V
 			goto :vivaldi_found
 		)
 		echo Vivaldi not found
 		:vivaldi_found
-		echo Starting Vivaldi...
+		rem nop
 	)
 
 	query process | find /i "outlook.exe" >nul
