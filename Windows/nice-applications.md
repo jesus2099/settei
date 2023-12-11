@@ -37,12 +37,18 @@ Text
 - Textify https://ramensoftware.com/textify
 
 
+Video
+-----
+
+- ffmpeg (nonfree, or gpl, or lgpl, but not shared) https://github.com/BtbN/FFmpeg-Builds/releases
+- LICEcap https://cockos.com/licecap
+- Media Player Classic Black Edition (MPC-BE) https://sourceforge.net/projects/mpcbe/
+
+
 Graphics
 --------
 
 - FastStone Capture (trial) https://faststone.org/FSCaptureDetail.htm
-- ffmpeg (nonfree, or gpl, or lgpl, but not shared) https://github.com/BtbN/FFmpeg-Builds/releases
-- LICEcap https://cockos.com/licecap
 - Sizer http://brianapps.net/sizer/
 
 
