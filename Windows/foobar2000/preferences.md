@@ -1,4 +1,15 @@
-﻿KEY       | MODIFIERS¹ | GLOBAL | TYPE    | ACTION
+﻿Display / Default User Interface
+--------------------------------
+
+Window title, Notification area icon tooltip:
+
+    %title%[ '//' %artist%]
+
+
+Keyboard Shortcuts
+------------------
+
+KEY       | MODIFIERS¹ | GLOBAL | TYPE    | ACTION
 ----------|------------|--------|---------|----------------------------------------
 insert    | ctrl+alt   | yes    | main    | Playback / Stop after current
 home      | ctrl+alt   | yes    | main    | Playback / Play or pause
