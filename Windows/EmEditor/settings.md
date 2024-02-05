@@ -1,4 +1,15 @@
 
+Customize
+=========
+
+
+Window
+------
+
+- Uncheck: Switch to last used document for Next Document command check box
+- Uncheck: Do not close last document by selecting Close command check box
+
+
 Tools
 =====
 
