@@ -155,4 +155,3 @@ echo location: !_location! >>"%~dpn0.log"
 echo errorlevels ^(home, office, github.com, gmail.com, ymail.com^): !_home!.!_office!.!_github!.!_gmail!.!_ymail! >>"%~dpn0.log"
 
 timeout /t 10
-call "%~dp0enable-domain-creds.bat"
