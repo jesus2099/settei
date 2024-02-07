@@ -3,8 +3,14 @@
 
 Window title, Notification area icon tooltip:
 
-    %title%[ '//' %artist%]
+    %title%[  –  %artist%]
 
+
+Display / Default User Interface / Background and Notifications
+---------------------------------------------------------------
+
+- Window minimize and close: Minimize hides, close exits
+- Notification area icon: Show only when foobar2000 is hidden
 
 Keyboard Shortcuts
 ------------------
@@ -32,3 +38,9 @@ f         | shift+ctrl | no     | context | Tagging / Attach pictures / Front co
 b         | shift+ctrl | no     | context | Tagging / Attach pictures / Back cover
 
 ¹ ctrl+alt == alt gr
+
+
+Playback / DSP Manager
+----------------------
+
+- Downmix channels to mono
