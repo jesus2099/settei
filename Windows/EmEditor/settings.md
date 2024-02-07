@@ -3,6 +3,12 @@ Customize
 =========
 
 
+Tab
+---
+
+- Icons: None
+- When Closed: Activate Left Tab
+
 Window
 ------
 
