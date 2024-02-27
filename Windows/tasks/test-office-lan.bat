@@ -38,7 +38,7 @@ del "%~dp0_ipconfig"
 for /f "tokens=11 delims= " %%a in ('ipconfig ^| findstr /nrc:"Suffixe DNS propre … la connexion[. ]*: fr.*\.ad\.[fiancer]*\.fr$"') do set _dns=%%a
 
 if defined _dns (
-	ping -n 2 !_dns!
+	ping -n 2 !_dns:~7!
 	set _office=!errorlevel!
 ) else (
 	set _office=1
