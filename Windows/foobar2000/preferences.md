@@ -38,9 +38,3 @@ f         | shift+ctrl | no     | context | Tagging / Attach pictures / Front co
 b         | shift+ctrl | no     | context | Tagging / Attach pictures / Back cover
 
 ¹ ctrl+alt == alt gr
-
-
-Playback / DSP Manager
-----------------------
-
-- Downmix channels to mono
