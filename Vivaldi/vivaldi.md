@@ -13,6 +13,8 @@ Searches
 
 - GnuDb: gnudb `https://gnudb.org/search.php?cmd=search&words=%s&mode=`
 - JASRAC title: jt `https://jesus2099.gitlab.io/forward-request.html?_action=https%3A%2F%2Fwww2.jasrac.or.jp%2FeJwid%2Fmain%3FtrxID%3DA00401-3%23result&_method=post&_accept-charset=Shift_JIS&IN_DEFAULT_WORKS_KOUHO_MAX=100&IN_DEFAULT_WORKS_KOUHO_SEQ=1&IN_WORKS_TITLE_NAME1=%s&IN_WORKS_TITLE_CONDITION=1&IN_DEFAULT_SEARCH_WORKS_NAIGAI=0&RESULT_CURRENT_PAGE=1`
+- JIRA browse: j `https://xxxx.atlassian.net/browse/%s`
+- JIRA project ID: jid `https://xxxx.atlassian.net/rest/api/latest/project/%s`
 - Joshin web (catalogue): jc `https://joshinweb.jp/dps/srhzs.html?KEY=ZS_RECODE&KEY_M=ALL&KEYWORD=%s&REQUEST_CODE=1`
 - mercari (analog / vinyl): mea `https://jp.mercari.com/search?keyword=%s&t1_category_id=5&category_id=1160`
 - mercari (CD): mec `https://jp.mercari.com/search?keyword=%s&t1_category_id=5&category_id=75`
