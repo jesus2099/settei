@@ -39,3 +39,9 @@ Extensions
 - uBlock Origin https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm
 - Ultimate Enable Right Click ─ Allow Copy https://chrome.google.com/webstore/detail/ultimate-enable-right-cli/emfeppdfcjnldjgmofdkbggeacapegen
 - Violentmonkey https://chrome.google.com/webstore/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag
+
+
+Tips
+----
+
+- Disable “Sign in to xxxx with Google.com” annoying popups https://myaccount.google.com/connections/settings
