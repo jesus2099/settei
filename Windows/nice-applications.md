@@ -55,6 +55,7 @@ Graphics
 Other
 -----
 
+- Auto Dark Mode https://github.com/AutoDarkMode/Windows-Auto-Night-Mode follows Windows Night Light dynamic sunset and sunrise times
 - Caffeine https://zhornsoftware.co.uk/caffeine `caffeine64.exe -onac -stes`
 - Firefox https://mozilla.org/firefox
 - Git for Windows https://gitforwindows.org
