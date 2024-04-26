@@ -10,7 +10,7 @@ Display / Default User Interface / Background and Notifications
 ---------------------------------------------------------------
 
 - Window minimize and close: Minimize hides, close exits
-- Notification area icon: Show only when foobar2000 is hidden
+- Notification area icon: Show always
 
 Keyboard Shortcuts
 ------------------
