@@ -1,16 +1,15 @@
-foo_ac3.dll (2019-01-31 22:22:38 UTC)
-    AC3 decoder 0.9.13
-foo_input_vgmstream.dll (2022-09-16 20:10:32 UTC)
-    vgmstream plugin r1776-73-g8c3ca400
-foo_keep_queue.dll (2010-11-12 02:28:46 UTC)
-    Keep Queue 0.3.5
-foo_lock.dll (2020-02-28 12:34:18 UTC)
-    Pause on Lock 0.8
-foo_musicbrainz.dll (2021-05-12 11:09:18 UTC)
-    MusicBrainz Tagger 0.4.7
-foo_run.dll (2022-09-19 09:12:20 UTC)
+foo_input_vgmstream.dll (2024-04-09 16:38:18 UTC)
+    vgmstream plugin r1917
+    https://github.com/vgmstream/vgmstream
+foo_lock.dll (2023-11-06 16:54:22 UTC)
+    Pause on lock 0.8.1.0
+    https://github.com/stuerp/foo_lock
+foo_musicbrainz.dll (2023-02-23 21:51:48 UTC)
+    MusicBrainz Tagger 0.5.0
+    https://github.com/kbuffington/foo_musicbrainz
+foo_run.dll (2022-09-19 09:14:04 UTC)
     Run services 0.4.5
-foo_texttools.dll (2022-09-16 09:00:30 UTC)
+    https://www.foobar2000.org/components/view/foo_run
+foo_texttools.dll (2022-09-16 08:57:40 UTC)
     Text Tools 1.1
-foo_tfsandbox.dll (2016-12-14 19:48:26 UTC)
-    Title Formatting Sandbox 1.0.3
+    https://www.foobar2000.org/components/view/foo_texttools
