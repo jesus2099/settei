@@ -3,17 +3,23 @@ Customize
 =========
 
 
+Window
+------
+
+- Uncheck: Switch to last used document for Next Document command check box
+- Uncheck: Do not close last document by selecting Close command check box
+
 Tab
 ---
 
 - Icons: None
 - When Closed: Activate Left Tab
 
-Window
+Status
 ------
 
-- Uncheck: Switch to last used document for Next Document command check box
-- Uncheck: Do not close last document by selecting Close command check box
+- Check: Character Code at Cursor
+- Check: Newline Character
 
 
 Tools
@@ -26,13 +32,11 @@ Commit
 C:\Program Files\TortoiseGit\bin\TortoiseGitProc.exe
 /command:commit /path:"$(Path)"
 
-
 Log
 ---
 
 C:\Program Files\TortoiseGit\bin\TortoiseGitProc.exe
 /command:log /path:"$(Path)"
-
 
 Windows Terminal
 ----------------
