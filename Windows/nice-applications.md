@@ -49,6 +49,7 @@ Graphics
 --------
 
 - FastStone Capture (trial) https://faststone.org/FSCaptureDetail.htm
+- FreeVimager https://www.contaware.com/software/freevimager.html
 - Sizer http://brianapps.net/sizer/
 
 
