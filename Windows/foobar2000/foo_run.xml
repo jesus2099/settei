@@ -9,11 +9,11 @@
     </service>
     <service minimized="false" num_exec="1">
         <label>MusicBrainz '('release')'</label>
-        <path>"https://musicbrainz.org/search?type=release&amp;method=advanced&amp;query=artist'%3A%22'%artist%'%22+AND+release%3A%22'%album%'%22'"</path>
+        <path>"https://musicbrainz.org/search?type=release&amp;method=advanced&amp;query=artist'%3A%22'%album artist%'%22+AND+release%3A%22'%album%'%22'"</path>
     </service>
     <service minimized="false" num_exec="1">
         <label>MusicBrainz '('release group')'</label>
-        <path>"https://musicbrainz.org/search?type=release_group&amp;method=advanced&amp;query=artist'%3A%22'%artist%'%22+AND+releasegroup%3A%22'%album%'%22'"</path>
+        <path>"https://musicbrainz.org/search?type=release_group&amp;method=advanced&amp;query=artist'%3A%22'%album artist%'%22+AND+releasegroup%3A%22'%album%'%22'"</path>
     </service>
     <service minimized="false" num_exec="1">
         <label>Open Directory</label>
