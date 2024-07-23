@@ -1,4 +1,7 @@
-﻿MusicBrainz
+﻿AcoustID edit note
+$if(%discnumber > 1,%discnumber%.)%tracknumber%. ''''''''''%title%'''''''''' '('%length_ex%')' https://acoustid.org/track/%ACOUSTID ID%
+
+MusicBrainz
 %tracknumber%. %title% - %artist% '('%length%')'
 
 Full path
