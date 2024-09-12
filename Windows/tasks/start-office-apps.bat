@@ -24,7 +24,7 @@ if not exist "%~dp0_vpn-flag" (
 			"%ProgramFiles%\Microsoft Office\root\Office16\OUTLOOK.EXE"
 			"%ProgramFiles(x86)%\Microsoft Office\Office16\OUTLOOK.EXE"
 		) do if exist %%O (
-			start "Outlook" %%O
+			start "Outlook ^(restore^)" %%O /restore
 			goto :outlook_found
 		)
 		echo Outlook not found
