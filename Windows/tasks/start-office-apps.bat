@@ -1,6 +1,8 @@
 @echo off
 setlocal enabledelayedexpansion
 
+taskkill /im PingID.exe >nul 2>nul
+
 if not exist "%~dp0_vpn-flag" (
 
 	query process | find /i "vivaldi.exe" >nul
