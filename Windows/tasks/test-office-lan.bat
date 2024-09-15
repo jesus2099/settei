@@ -142,6 +142,43 @@ if !_vpn! neq 2 (
 	start "PingID" "%ProgramFiles(x86)%\Ping Identity\PingID\PingID.exe"
 	echo Starting Pulse Secure...
 	start "Pulse Secure" "%ProgramFiles(x86)%\Common Files\Pulse Secure\JamUI\Pulse.exe" -show
+	where nircmd >nul 2>nul && where timeout >nul 2>nul
+	if !errorlevel! equ 0 (
+		set /p "=Waiting for PingID.." <nul
+		set _pingid_max_retry=60
+		:wait_for_pingid
+		set /a "_pingid_max_retry-=1"
+		set /p "=." <nul
+		if !_pingid_max_retry! leq 0 (
+			echo.
+			goto stop_wait_for_pingid
+		)
+		for /f "tokens=8,9 delims=," %%a in ('tasklist /v /fo csv /nh /fi "imagename eq PingID.exe"') do (
+			if "%%~b" == "PingID" (
+				set _pingid_found=1
+				set _pingid_cpu_time=%%~a
+				set _pingid_cpu_time=!_pingid_cpu_time::=!
+				if !_pingid_cpu_time! geq 5 (
+					echo.
+					echo PingID always on top...
+					timeout /t 1 >nul
+					nircmd win settopmost process PingID.exe 1
+					nircmd win trans process PingID.exe 200
+					nircmd win flash process PingID.exe 5
+					nircmd win activate process PingID.exe
+					nircmd sendkey 0x09 press
+					nircmd sendkey 0x09 press
+					goto stop_wait_for_pingid
+				)
+			) else (
+				timeout /t 1 >nul
+				goto wait_for_pingid
+			)
+		)
+		if !_pingid_found neq 1 goto wait_for_pingid
+		:stop_wait_for_pingid
+		rem echo prout
+	)
 )
 echo goto end
 goto end
