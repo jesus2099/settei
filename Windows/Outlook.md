@@ -29,3 +29,13 @@ De                 ne contient pas  Nom, Prénom
 De                 ne contient pas  Prénom Nom
 De                 ne contient pas  aa
 De                 ne contient pas  aa@bb.cc
+
+
+Vrais messages envoyés
+----------------------
+
+Inclus : Éléments envoyés
+
+Options avancées :
+Classe du message  ne contient pas  IPM.Schedule.Meeting
+Message            ne contient pas  reacted to your message
