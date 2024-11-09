@@ -44,4 +44,13 @@ Extensions
 Tips
 ----
 
-- Disable “Sign in to xxxx with Google.com” annoying popups https://myaccount.google.com/connections/settings
+### Disable “Sign in to xxxx with Google.com” annoying popups ###
+
+https://forum.vivaldi.net/topic/96927/how-to-disable-sign-in-to-xxx-with-google-com
+
+Uncheck https://myaccount.google.com/connections/settings
+
+1. Open **Vivaldi Settings** (Ctrl+F12)
+2. Click **Privacy and Security** tab
+3. Scroll down to **WEBSITE PERMISSIONS**
+4. In **Global Permissions** locate **Third-Party Sign-in** and select **Block** instead of *Allow*
