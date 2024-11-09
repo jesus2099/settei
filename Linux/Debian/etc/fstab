@@ -1,4 +1,10 @@
-#<ip>:/<volume>/<share> /media/<server>/<share>-nfs nfs defaults,user,auto,noatime,intr 0 0
-#<ip>:/<volume>/<share> /media/<server>/<share> nfs rsize=8192,wsize=8192,timeo=14,intr 0 0
+#<ip>:/<volume>/<share> /media/<server>/<share> nfs defaults,user,auto,noatime,intr 0 0
+#<ip>:/<volume>/<share> /media/<server>/<share> nfs rw,hard,intr,rsize=8192,wsize=8192,timeo=14 0 0
 #//<ip>/<share>    /media/<server>/<share>    cifs user,rw,uid=1000,gid=1000,credentials=/home/<user>/.<server>cifs 0 0
 //<ip>/<share>   /media/<server>/<share>   cifs user,rw,uid=<user>,gid=<user>,credentials=/home/<user>/.<server>cifs 0 0
+
+# http://jensd.be/229/linux/mount-windows-cifs-shares-on-linux-with-credentials-in-a-secure-way
+# https://www.malekal.com/mount-et-fstab-comment-monter-des-disques-nfs-cifs-sur-linux/#etcfstab_montage_automatique_au_demarrage_de_Linux
+# [Périphérique] [Point de montage] [Type de système de fichiers] [Options] [Dump] [Réussite]
+# https://linuxopsys.com/linux-nfs-mount-entry-in-fstab-with-example
+# Server:/path/to/export /local_mountpoint nfs <options> 0 0
