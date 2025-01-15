@@ -13,6 +13,9 @@ del "%~dp0_reachable-flag"
 	time /t
 ) >>"%~dpn0.log"
 
+echo Starting Caffeine off...
+start "Caffeine" "%LocalAppData%\Programs\_\caffeine64.exe" -stes -onac -notwhenlocked -startoff -replace
+
 mode con cp select=850 >nul 2>>"%~dpn0.log"
 
 rem -----------------------------------------------------------------------
@@ -97,9 +100,6 @@ echo goto !_location!
 goto !_location!
 
 :office
-
-echo Starting Caffeine off...
-start "Caffeine" "%LocalAppData%\Programs\_\caffeine64.exe" -stes -onac -notwhenlocked -startoff -replace
 
 call "%~dp0\start-office-apps.bat"
 goto end
