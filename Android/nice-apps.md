@@ -12,7 +12,6 @@ Nice Apps
 - [NewPipe](https://newpipe.net)
 - [Paris-ci la Sortie du Métro](https://play.google.com/store/apps/details?id=com.patrickung.parisciandroid)
 - [RealCalc Scientific Calculator](https://play.google.com/store/apps/details?id=uk.co.nickfines.RealCalc)
-- [Rotation Control](https://play.google.com/store/apps/details?id=org.crape.rotationcontrol)
 - [Synology DS file](https://play.google.com/store/apps/details?id=com.synology.DSfile)
 - [Tuner](https://play.google.com/store/apps/details?id=de.moekadu.tuner)
 - [VOEZ](https://play.google.com/store/apps/details?id=com.rayark.valkyrie)
