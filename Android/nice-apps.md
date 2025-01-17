@@ -1,21 +1,21 @@
 Nice Apps
 =========
 
-- https://newpipe.net
-- https://play.google.com/store/apps/details?id=com.asus.filemanager
-- https://play.google.com/store/apps/details?id=com.google.zxing.client.android
-- https://play.google.com/store/apps/details?id=com.kgurgul.cpuinfo
-- https://play.google.com/store/apps/details?id=com.kiwibrowser.browser
-- https://play.google.com/store/apps/details?id=com.microsoft.office.officelens
-- https://play.google.com/store/apps/details?id=com.patrickung.parisciandroid
-- https://play.google.com/store/apps/details?id=com.rayark.valkyrie
-- https://play.google.com/store/apps/details?id=com.sony.songpal
-- https://play.google.com/store/apps/details?id=com.synology.DSfile
-- https://play.google.com/store/apps/details?id=de.moekadu.metronome
-- https://play.google.com/store/apps/details?id=de.moekadu.tuner
-- https://play.google.com/store/apps/details?id=io.yuka.android
-- https://play.google.com/store/apps/details?id=jp.co.xing.spnavi
-- https://play.google.com/store/apps/details?id=jp.go.jnto.jota
-- https://play.google.com/store/apps/details?id=jp.go.nict.voicetra
-- https://play.google.com/store/apps/details?id=org.crape.rotationcontrol
-- https://play.google.com/store/apps/details?id=uk.co.nickfines.RealCalc
+- [AsusTek Zen File Manager](https://play.google.com/store/apps/details?id=com.asus.filemanager)
+- [CPU Info](https://play.google.com/store/apps/details?id=com.kgurgul.cpuinfo)
+- [Japan Official Travel App](https://play.google.com/store/apps/details?id=jp.go.jnto.jota)
+- [Kiwi Browser](https://play.google.com/store/apps/details?id=com.kiwibrowser.browser)
+- [Metronome](https://play.google.com/store/apps/details?id=de.moekadu.metronome)
+- [Microsoft Lens](https://play.google.com/store/apps/details?id=com.microsoft.office.officelens)
+- [NewPipe](https://newpipe.net)
+- [Paris-ci la Sortie du Métro](https://play.google.com/store/apps/details?id=com.patrickung.parisciandroid)
+- [RealCalc Scientific Calculator](https://play.google.com/store/apps/details?id=uk.co.nickfines.RealCalc)
+- [Rotation Control](https://play.google.com/store/apps/details?id=org.crape.rotationcontrol)
+- [Sony Music Center (ex-SongPal)](https://play.google.com/store/apps/details?id=com.sony.songpal)
+- [Synology DS file](https://play.google.com/store/apps/details?id=com.synology.DSfile)
+- [Tuner](https://play.google.com/store/apps/details?id=de.moekadu.tuner)
+- [VOEZ](https://play.google.com/store/apps/details?id=com.rayark.valkyrie)
+- [VoiceTra](https://play.google.com/store/apps/details?id=jp.go.nict.voicetra)
+- [Yuka](https://play.google.com/store/apps/details?id=io.yuka.android)
+- [ZXing Barcode Scanner](https://play.google.com/store/apps/details?id=com.google.zxing.client.android)
+- [カラオケ予約-キョクナビJOYSOUND](https://play.google.com/store/apps/details?id=jp.co.xing.spnavi)
