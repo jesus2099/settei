@@ -3,6 +3,7 @@ Nice Apps
 
 - [AsusTek Zen File Manager](https://play.google.com/store/apps/details?id=com.asus.filemanager)
 - [Auxio](https://github.com/OxygenCobalt/Auxio)
+- [CPDT Benchmark Memory RAМ](https://play.google.com/store/apps/details?id=com.Saplin.CPDT)
 - [CPU Info](https://play.google.com/store/apps/details?id=com.kgurgul.cpuinfo)
 - [Japan Official Travel App](https://play.google.com/store/apps/details?id=jp.go.jnto.jota)
 - [Kiwi Browser](https://play.google.com/store/apps/details?id=com.kiwibrowser.browser)
