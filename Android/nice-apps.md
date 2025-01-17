@@ -2,6 +2,7 @@ Nice Apps
 =========
 
 - [AsusTek Zen File Manager](https://play.google.com/store/apps/details?id=com.asus.filemanager)
+- [Auxio](https://github.com/OxygenCobalt/Auxio)
 - [CPU Info](https://play.google.com/store/apps/details?id=com.kgurgul.cpuinfo)
 - [Japan Official Travel App](https://play.google.com/store/apps/details?id=jp.go.jnto.jota)
 - [Kiwi Browser](https://play.google.com/store/apps/details?id=com.kiwibrowser.browser)
@@ -11,7 +12,6 @@ Nice Apps
 - [Paris-ci la Sortie du Métro](https://play.google.com/store/apps/details?id=com.patrickung.parisciandroid)
 - [RealCalc Scientific Calculator](https://play.google.com/store/apps/details?id=uk.co.nickfines.RealCalc)
 - [Rotation Control](https://play.google.com/store/apps/details?id=org.crape.rotationcontrol)
-- [Sony Music Center (ex-SongPal)](https://play.google.com/store/apps/details?id=com.sony.songpal)
 - [Synology DS file](https://play.google.com/store/apps/details?id=com.synology.DSfile)
 - [Tuner](https://play.google.com/store/apps/details?id=de.moekadu.tuner)
 - [VOEZ](https://play.google.com/store/apps/details?id=com.rayark.valkyrie)
