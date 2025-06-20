@@ -1,7 +1,8 @@
 @echo off
-setlocal enabledelayedexpansion
+setlocal EnableDelayedExpansion
 
 taskkill /im PingID.exe >nul 2>nul
+nircmd win close title "Ivanti Secure Access Client"
 
 if not exist "%~dp0_vpn-flag" (
 
@@ -35,13 +36,6 @@ if not exist "%~dp0_vpn-flag" (
 	)
 
 	if exist "%~dp0_reachable-flag" (
-
-		query process | find /i "ms-teams.exe" >nul
-		if !errorlevel! equ 1 (
-			echo Starting Teams...
-			rem find app ID by exploring shell:AppsFolder and create shortcut
-			start shell:AppsFolder\MSTeams_8wekyb3d8bbwe^^!MSTeams
-		)
 
 		query process | find /i "opentouchcon..." >nul
 		if !errorlevel! equ 1 (

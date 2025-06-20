@@ -1,5 +1,5 @@
 @echo off
-setlocal enableDelayedExpansion
+setlocal EnableDelayedExpansion
 
 del "%~dp0_vpn-flag"
 del "%~dp0_reachable-flag"
@@ -78,7 +78,15 @@ if !_location! equ office (
 	set _vpn=!errorlevel!
 )
 
-if !_vpn! equ 1 date /t >"%~dp0_reachable-flag"
+if !_vpn! equ 1 (
+	date /t >"%~dp0_reachable-flag"
+	query process | find /i "ms-teams.exe" >nul
+	if !errorlevel! equ 1 (
+		echo Starting Teams...
+		rem find app ID by exploring shell:AppsFolder and create shortcut
+		start shell:AppsFolder\MSTeams_8wekyb3d8bbwe^^!MSTeams
+	)
+)
 
 goto !_location!
 
