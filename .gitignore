@@ -1,3 +1,4 @@
 *.bak
 *.log*
+*.tmp
 Thumbs.db

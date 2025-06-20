@@ -1,0 +1,24 @@
+
+Lock Outlook ribbon
+-------------------
+
+Prevents Outlook ribbon customisation from regularly resetting on updates.
+Unlock files to customise, lock again right after (no need to quit Outlook).
+
+Hint from BuzzLightBeer at page 3 top (06 Dec 2023 08:48:04 PM)
+https://answers.microsoft.com/en-us/outlook_com/forum/all/outlook-keep-resetting-ribbon-back-to-default/92de12f0-8d3e-4575-a40f-b26874f57042?page=3
+
+%LocalAppData%\Microsoft\Office
+
+Make these files "read only":
+
+- olkaddritem.officeUI     : Contact item (I don’t actually have this one)
+- olkapptitem.officeUI     : Calendar item
+- olkexplorer.officeUI     : Mail list
+- olkmailitem.officeUI     : Mail send
+- olkmailread.officeUI     : Mail read
+- olkmreqread.officeUI     : Mail meeting requests read
+- olkresponseread.officeUI : Mail appointment, response read
+- olkresponsesend.officeUI : Mail appointment, response send
+- olkshareread.officeUI    : ?
+

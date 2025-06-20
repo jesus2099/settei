@@ -2,6 +2,9 @@ Vivaldi setup
 =============
 
 
+- Toggle Find in Page When Using Shortcut: Off
+
+
 Mouse Gestures
 --------------
 

@@ -1,0 +1,59 @@
+﻿// document.selection.SelectAll();
+// document.selection.Paste();
+// Le document doit contenir un message ACARS downlink valide et rien d’autre
+
+// Date et heure courante pour entête et ligne DT 
+DATE = new Date();
+DATE = leftPad(DATE.getUTCDate(), 2, "0") + leftPad(DATE.getUTCHours(), 2, "0") + leftPad(DATE.getUTCMinutes(), 2, "0")
+
+// SMI
+document.selection.SetActivePoint(eePosView, 1, 1);
+document.selection.EndOfLine(true);
+SMI = document.selection.Text;
+
+// Ligne FI
+document.selection.SetActivePoint(eePosView, 1, 2);
+document.selection.EndOfLine(true);
+LIGNE_FI = document.selection.Text
+
+// Ligne DT
+document.selection.SetActivePoint(eePosView, 4, 3);
+document.selection.EndOfLine(true);
+LIGNE_DT = document.selection.Text.replace(/\b\d{6}\b/, DATE);
+
+// Corps du message
+document.selection.SetActivePoint(eePosView, 4, 4);
+document.selection.EndOfDocument(true);
+TEXTE_LIBRE = document.selection.Text.replace(/\r?\n/g, "\\r\\n");
+
+// Remplace le messager ACARS par le JSON Swagger
+JSON = "tout_modifiable.txt\n\nLe JSON ci-dessous a bien été copié dans le presse-papier.\n\n";
+JSON += "{\n";
+JSON += '	"DEST": "ORYOAAF",\n';
+JSON += '	"DESTS": "ORYOAAF",\n';
+JSON += '	"ORIGINE": "QXSXMXS",\n';
+JSON += '	"DATE_EMISSION": "' + DATE + '",\n';
+JSON += '	"SMI": "' + SMI + '",\n';
+JSON += '	"LIGNE_FI": "' + LIGNE_FI + '",\n';
+JSON += '	"LIGNE_DT": "' + LIGNE_DT + '",\n';
+JSON += '	"TEXTE_LIBRE": "' + TEXTE_LIBRE + '"\n';
+JSON += "}\n";
+document.selection.SelectAll();
+document.selection.Text = JSON;
+
+// Copie le JSON Swagger généré
+document.selection.SetActivePoint(eePosView, 1, 5);
+document.selection.EndOfDocument(true);
+document.selection.Copy();
+
+// Sélectionne tout_modifiable.txt si besoin de copier/coller vers Swagger (pour la première fois, par exemple)
+// https://acacia-rct.ta-tls.af-klm.com/producer-mock/swagger-ui/index.html#/downlink-message-producer-mock-controller/sendMessage_3
+document.selection.SetActivePoint(eePosView, 1, 1);
+document.selection.EndOfLine(true);
+
+// Fonction Patrick, pas dispo de base dans EmEditor
+function leftPad(number, size, pad) {
+	num = number + "";
+	while (num.length < size) num = pad + num;
+	return num;
+}
