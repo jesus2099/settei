@@ -52,20 +52,7 @@ if !_home!!_office! == 01 set _location=home
 if !_home!!_office! == 10 set _location=office
 
 if !_location! equ office (
-	rem https://texteditor.com/multiline-text-art/
-	echo.
-	echo    _______                             __                __       __                ____  
-	echo   ^|       \                           ^|  \              ^|  \     ^|  \              /    \ 
-	echo   ^| ²²²²²²²\ ______   ______   _______^| ²²____   ______ ^| ²²____ ^| ²² ______      ^|  ²²²²\
-	echo   ^| ²²__^| ²²/      \ ^|      \ /       \ ²²    \ ^|      \^| ²²    \^| ²²/      \      \²²^| ²²
-	echo   ^| ²²    ²²  ²²²²²²\ \²²²²²²\  ²²²²²²² ²²²²²²²\ \²²²²²²\ ²²²²²²²\ ²²  ²²²²²²\       /  ²²
-	echo   ^| ²²²²²²²\ ²²    ²²/      ²² ²²     ^| ²²  ^| ²²/      ²² ²²  ^| ²² ²² ²²    ²²      ^|  ²² 
-	echo   ^| ²²  ^| ²² ²²²²²²²²  ²²²²²²² ²²_____^| ²²  ^| ²²  ²²²²²²² ²²__/ ²² ²² ²²²²²²²²       \²²  
-	echo   ^| ²²  ^| ²²\²²     \\²²    ²²\²²     \ ²²  ^| ²²\²²    ²² ²²    ²² ²²\²²     \      ^|  \  
-	echo    \²²   \²² \²²²²²²² \²²²²²²² \²²²²²²²\²²   \²² \²²²²²²²\²²²²²²² \²² \²²²²²²²       \²²  
-	echo.
-	choice /c yn /n /d y /t 10 /m "[Yes] / No"
-	set _vpn=!errorlevel!
+	set _vpn=1
 ) else (
 	echo.
 	echo   °°    °° °°°°°°  °°°    °°     °°°°°°  
