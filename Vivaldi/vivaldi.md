@@ -2,7 +2,8 @@ Vivaldi setup
 =============
 
 
-- Toggle Find in Page When Using Shortcut: Off
+- Settings > Toggle Find in Page When Using Shortcut: Off
+- vivaldi:settings/accessibility > Copied to clipboard confirmations: Off
 
 
 Mouse Gestures
