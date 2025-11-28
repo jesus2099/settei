@@ -6,6 +6,14 @@ Vivaldi setup
 - vivaldi:settings/accessibility > Copied to clipboard confirmations: Off
 
 
+Keyboard
+--------
+
+- Window
+  - Developer Tools Inspect Element: Ctrl+Shift+C
+- Page
+  - Copy Selected Text to Note: ~~Ctrl+Shift+C~~
+
 Mouse Gestures
 --------------
 
