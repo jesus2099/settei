@@ -51,30 +51,6 @@ set _location=other
 if !_home!!_office! == 01 set _location=home
 if !_home!!_office! == 10 set _location=office
 
-if !_location! equ office (
-	set _vpn=1
-) else (
-	echo.
-	echo   °°    °° °°°°°°  °°°    °°     °°°°°°  
-	echo   ±±    ±± ±±   ±± ±±±±   ±±          ±± 
-	echo   ±±    ±± ±±±±±±  ±± ±±  ±±       Ü±±±  
-	echo    ²²  ²²  ²²      ²²  ²² ²²       ßß    
-	echo     ÛÛÛÛ   ÛÛ      ÛÛ   ÛÛÛÛ       ÛÛ    
-	echo.
-	choice /c ync /n /d y /t 10 /m "[Yes] / No / Connected but not reachable"
-	set _vpn=!errorlevel!
-)
-
-if !_vpn! equ 1 (
-	date /t >"%~dp0_reachable-flag"
-	query process | find /i "ms-teams.exe" >nul
-	if !errorlevel! equ 1 (
-		echo Starting Teams...
-		rem find app ID by exploring shell:AppsFolder and create shortcut
-		start shell:AppsFolder\MSTeams_8wekyb3d8bbwe^^!MSTeams
-	)
-)
-
 goto !_location!
 
 :other
@@ -131,6 +107,30 @@ goto online
 echo Power connected
 
 :online
+
+if !_location! equ office (
+	set _vpn=1
+) else (
+	echo.
+	echo   °°    °° °°°°°°  °°°    °°     °°°°°°  
+	echo   ±±    ±± ±±   ±± ±±±±   ±±          ±± 
+	echo   ±±    ±± ±±±±±±  ±± ±±  ±±       Ü±±±  
+	echo    ²²  ²²  ²²      ²²  ²² ²²       ßß    
+	echo     ÛÛÛÛ   ÛÛ      ÛÛ   ÛÛÛÛ       ÛÛ    
+	echo.
+	choice /c ync /n /d y /t 10 /m "[Yes] / No / Connected but not reachable"
+	set _vpn=!errorlevel!
+)
+
+if !_vpn! equ 1 (
+	date /t >"%~dp0_reachable-flag"
+	query process | find /i "ms-teams.exe" >nul
+	if !errorlevel! equ 1 (
+		echo Starting Teams...
+		rem find app ID by exploring shell:AppsFolder and create shortcut
+		start shell:AppsFolder\MSTeams_8wekyb3d8bbwe^^!MSTeams
+	)
+)
 
 if !_vpn! neq 2 (
 	echo Starting PingID...
