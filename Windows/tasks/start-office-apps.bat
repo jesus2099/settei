@@ -17,9 +17,11 @@ if not exist "%~dp0_vpn-flag" (
 			goto :vivaldi_found
 		)
 		echo Vivaldi not found
-		:vivaldi_found
-		rem nop
+	) else (
+		echo Vivaldi is running
 	)
+	:vivaldi_found
+	rem no empty line after label
 
 	query process | find /i "outlook.exe" >nul
 	if !errorlevel! equ 1 (
@@ -27,12 +29,28 @@ if not exist "%~dp0_vpn-flag" (
 			"%ProgramFiles%\Microsoft Office\root\Office16\OUTLOOK.EXE"
 			"%ProgramFiles(x86)%\Microsoft Office\Office16\OUTLOOK.EXE"
 		) do if exist %%O (
+			echo Starting Outlook...
 			start "Outlook ^(restore^)" %%O /restore
 			goto :outlook_found
 		)
 		echo Outlook not found
-		:outlook_found
-		echo Starting Outlook...
+	) else (
+		echo Outlook is running
+	)
+	:outlook_found
+	rem no empty line after label
+
+	query process Emul_Launcher.exe 2>nul | find /i "emul_launche" >nul
+	if !errorlevel! equ 1 (
+		for /f "delims=" %%E in ('where /f /r "%ProgramFiles(x86)%" Emul_Launcher.exe') do set _emul=%%E
+		if defined _emul (
+			echo Starting Intranex...
+			start "Intranex" !_emul!
+		) else (
+			echo Intranex not found
+		)
+	) else (
+		echo Intranex is running
 	)
 
 	if exist "%~dp0_reachable-flag" (
@@ -41,6 +59,8 @@ if not exist "%~dp0_vpn-flag" (
 		if !errorlevel! equ 1 (
 			echo Starting OpenTouch Conversation...
 			start "OpenTouch Conversation" "%ProgramFiles% (x86)\Alcatel-Lucent Enterprise\OpenTouch Conversation\OpenTouchConversation.exe"
+		) else (
+			echo OpenTouch is running
 		)
 
 	)
