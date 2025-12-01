@@ -137,10 +137,14 @@ if !_vpn! neq 2 (
 	start "PingID" "%ProgramFiles(x86)%\Ping Identity\PingID\PingID.exe"
 	echo Starting Pulse Secure...
 	start "Pulse Secure" "%ProgramFiles(x86)%\Common Files\Pulse Secure\JamUI\Pulse.exe" -show
-	where wevtutil >nul 2>nul && where timeout >nul 2>nul
+	where wevtutil >nul 2>nul && where timeout >nul 2>nul && where powershell >nul 2>nul
 	if !errorlevel! equ 0 (
-		set /p "=Waiting for VPN.." <nul
-		set _vpn_max_retry=60
+		set _vpn_wait_time_min=30
+		set _vpn_wait_check_delay_s=2
+		set /a "_vpn_wait_time_s= _vpn_wait_time_min * 60"
+		set /a "_vpn_max_retry= _vpn_wait_time_s / _vpn_wait_check_delay_s"
+		for /f "delims=" %%T in ('powershell get-date -format "yyyy-MM-ddTHH:mm:ssZ" ^(get-date^).toUniversalTime^(^)') do set _wait_start_ts=%%T
+		set /p "=Waiting for VPN ^(!_vpn_wait_time_min! min max^).." <nul
 		:wait_for_vpn
 		set /a "_vpn_max_retry-=1"
 		set /p "=." <nul
@@ -148,13 +152,12 @@ if !_vpn! neq 2 (
 			echo.
 			goto stop_wait_for_vpn
 		)
-		rem 10 min = 600 000 ms
-		wevtutil qe /rd:true /f:text /q:"Event[System[Provider[@Name='IVE']][EventID=312][TimeCreated[timediff(@SystemTime) <= 600000]]]" "Pulse Secure/Operational"|find "was established successfully to https://"
+		wevtutil qe /rd:true /f:text /q:"Event[System[Provider[@Name='IVE']][EventID=312][TimeCreated[@SystemTime ^>= '!_wait_start_ts!']]]" "Pulse Secure/Operational"|find "was established successfully to https://"
 		if !errorlevel! equ 0 (
 			call "%~dp0\start-office-apps.bat"
 			goto stop_wait_for_vpn
 		) else (
-			timeout /t 2 >nul
+			timeout /t !_vpn_wait_check_delay_s! >nul
 			goto wait_for_vpn
 		)
 		:stop_wait_for_vpn
