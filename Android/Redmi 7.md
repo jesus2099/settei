@@ -5,7 +5,7 @@ Xiaomi Redmi 7
 REACH_DOWNLINK_SMS_LIMITATION
 -----------------------------
 
-Erreur à chaque démarrage du Xiaomi Redmi 7 
+Erreur à chaque démarrage du Redmi 7
 lors de la tentative de l’_activation de la SIM_ 
 pour le _Cloud_ Xiaomi, pour la localisation d’urgence du téléphone 
 (ou un autre truc comme ça).
@@ -21,10 +21,31 @@ pour le _Cloud_ Xiaomi, pour la localisation d’urgence du téléphone
 
 Effectivement, ça a marché pour moi aussi (ça faisait un an que je cherchais une solution). 
 
-En français :
+En français :
 
 1. Paramètres
 1.2. Cartes SIM & réseaux mobiles
-1.3. Itinérance des données : **Toujours**
+1.3. Itinérance des données : **Toujours**
 2. Redémarrer le téléphone et constater l’absence d’erreur
 2. On peut ensuite remettre le réglage initial (**Jamais** ou _Seulement pour les exceptions_)
+
+Une autre solution si l’activation de la carte SIM ne marche pas : désactiver les data et réessayer.
+
+
+Bloquer les pubs Xiaomi
+-----------------------
+
+Paramètres > Mots de passe et Sécurité > Autorisation & révocation
+
+- Désactiver *msa*
+- Désactiver *GetApps* (moi je ne l’ai pas)
+
+Paramètres > Mots de passe & sécurité > Confidentialité > Services publicitaires
+
+- Désactiver *Recommandation de publicités personalisées*
+
+Désactiver les recommandations/publicités dans chaque appli Xiaomi, y compris les dossiers du bureau !
+
+Paramètres > Écran de verrouillage
+
+- Supprimer ou désactiver *Fond d’écran Carousel*
