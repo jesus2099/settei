@@ -52,9 +52,7 @@ if not exist "%~dp0_vpn-flag" (
 	) else (
 		echo Intranex is running
 	)
-
 	if exist "%~dp0_reachable-flag" (
-
 		query process | find /i "opentouchcon..." >nul
 		if !errorlevel! equ 1 (
 			echo Starting OpenTouch Conversation...
@@ -62,7 +60,6 @@ if not exist "%~dp0_vpn-flag" (
 		) else (
 			echo OpenTouch is running
 		)
-
 	)
 
 	date /t >"%~dp0_vpn-flag"

@@ -97,6 +97,19 @@ if !_location! equ office (
 	set _vpn=!errorlevel!
 
 	if !_vpn! neq 2 (
+
+		if !_vpn! equ 1 (
+			date /t >"%~dp0_reachable-flag"
+			query process | find /i "ms-teams.exe" >nul
+			if !errorlevel! equ 1 (
+				echo Starting Teams...
+				rem find app ID by exploring shell:AppsFolder and create shortcut
+				start shell:AppsFolder\MSTeams_8wekyb3d8bbwe^^!MSTeams
+			) else (
+				echo Teams is running
+			)
+		)
+
 		echo Starting PingID...
 		start "PingID" "%ProgramFiles(x86)%\Ping Identity\PingID\PingID.exe"
 		echo Starting Pulse Secure...
@@ -127,18 +140,6 @@ if !_location! equ office (
 			:stop_wait_for_vpn
 			rem no empty line after label
 		)
-	)
-)
-
-if !_vpn! equ 1 (
-	date /t >"%~dp0_reachable-flag"
-	query process | find /i "ms-teams.exe" >nul
-	if !errorlevel! equ 1 (
-		echo Starting Teams...
-		rem find app ID by exploring shell:AppsFolder and create shortcut
-		start shell:AppsFolder\MSTeams_8wekyb3d8bbwe^^!MSTeams
-	) else (
-		echo Teams is running
 	)
 )
 
