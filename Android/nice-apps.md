@@ -5,7 +5,7 @@ Nice Apps
 - [Auxio](https://github.com/OxygenCobalt/Auxio "org.oxycblt.auxio")
 - [CPDT Benchmark Memory RAМ](https://play.google.com/store/apps/details?id=com.Saplin.CPDT)
 - [CPU Info](https://play.google.com/store/apps/details?id=com.kgurgul.cpuinfo)
-- [Firefox](https://play.google.com/store/apps/details?id=org.mozilla.firefox)
+- [Firefox](https://play.google.com/store/apps/details?id=org.mozilla.firefox) + [Violentmonkey](https://violentmonkey.github.io) + [Stylus](https://add0n.com/stylus.html)
 - [Japan Official Travel App](https://play.google.com/store/apps/details?id=jp.go.jnto.jota)
 - [Metronome](https://play.google.com/store/apps/details?id=de.moekadu.metronome)
 - [Microsoft Lens](https://play.google.com/store/apps/details?id=com.microsoft.office.officelens)
