@@ -18,5 +18,5 @@ Nice Apps
 - [VOEZ](https://play.google.com/store/apps/details?id=com.rayark.valkyrie)
 - [VoiceTra](https://play.google.com/store/apps/details?id=jp.go.nict.voicetra)
 - [Yuka](https://play.google.com/store/apps/details?id=io.yuka.android)
-- [ZXing Barcode Scanner](https://play.google.com/store/apps/details?id=com.google.zxing.client.android)
+- [ZXing Barcode Scanner](https://github.com/zxing/zxing/releases/tag/BS-4.7.8 "com.google.zxing.client.android")
 - [カラオケ予約-キョクナビJOYSOUND](https://play.google.com/store/apps/details?id=jp.co.xing.spnavi)
