@@ -1,5 +1,5 @@
-Walkman®
-========
+Walkman
+=======
 
 Output format
 -------------
@@ -23,4 +23,4 @@ Other
 
 - ReplayGain-scan output files as album
 - Transfer attached pictures
-- Copy other files to the destination folder: *.cue;*.jpg
+- Copy other files to the destination folder: *.cue;*.log;*.jpg

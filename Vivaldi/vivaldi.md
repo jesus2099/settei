@@ -3,6 +3,7 @@ Vivaldi setup
 
 
 - Settings > Toggle Find in Page When Using Shortcut: Off
+- Settings > Compact Menu Layout: On
 - chrome:settings/accessibility > Copied to clipboard confirmations: Off
 - Settings > biscuit > Enable Rainbow Mode 🌈
 - Settings > biscuit > Show Browser Version on Status Bar
