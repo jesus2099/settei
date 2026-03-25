@@ -1,3 +1,9 @@
-﻿// https://github.com/Emurasoft/library/tree/main/macros
-document.selection.SelectAll();
-document.selection.Text = JSON.stringify(JSON.parse(document.selection.Text), null, "\t");
+﻿// Enhanced version of TidyJSON.zip from https://github.com/Emurasoft/library/tree/main/macros
+if (document.selection.IsEmpty) {
+	document.selection.SelectAll();
+}
+if (document.selection.Text.match(/[{,][^"]+:/)) {
+	alert("JSON parsing error\n\nYou must use quotes around attribute names");
+} else {
+	document.selection.Text = JSON.stringify(JSON.parse(document.selection.Text), null, "\t");
+}
