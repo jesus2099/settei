@@ -1,0 +1,359 @@
+﻿/* from https://github.com/Emurasoft/library/tree/main/macros
+* An Simple XML formatter that will format the user selected - valid xml.
+* It does not check structure as it only provides formatting capabilities and not parsing capabilities.
+* If invalid xml is passed to the formatter then the provided resulting stucture may be wrong.
+* It has been tested on a 200,000 line xml document, which it can process in about 1 minute. For an 9000 line xml stucture, it can process it within 4 seconds.
+*
+* If you wish the text node to be displayed as below, please set the textOneLiner variable to true. e.g  var textOneLiner = true;
+*
+*   <node>some text</node>
+*
+* Otherwise if the value is false, then the text will be displayed as below, e.g. var textOneLiner = false;
+*
+*	<node>
+*		some text
+*	</node>
+*
+* Conditions of use:-
+*
+* This formatter shall not be sold for profit or gain but may be used freely.
+* Sections of source code may be take from this document but the authours details must be provided with it. 
+* If you feel that the code needs changing please contact me at the provided email address below,
+* as improvements would be greatly appreciated.
+*
+* @authour Andrew Peter Powell
+* @date 01/01/2008
+* @version 1.2
+* @email andrew@programmer.orangehome.co.uk
+* Copyright 2008
+*/
+
+var tabSpaces = "";
+var tabs = "";
+
+var textOneLiner = true;
+
+/*
+* Main entry point that is fired when the macro is run
+* Prompts the user for the number of spaces to use for indentations
+*/
+function formatDocument() {
+	
+	var useTabs = confirm("Would you like to use tabs to indent?");
+	
+	var textualSeperator = "spaces";
+	var indentCharacter = " ";
+	if(useTabs == true) {
+		indentCharacter = "\t";
+		textualSeperator = "tabs"
+	}
+	
+	var val = prompt("Please enter the number of " + textualSeperator + " to indent", (indentCharacter == " " ? "4" : "1"));
+	
+	status = "Formatting Selected XML - Please Wait...";
+	
+	var spaces = 0;
+	try {
+		spaces = parseInt(val);
+		// If is not a number then thrown an exception
+		if(isNaN(spaces)) {
+			throw val;
+		}
+	} catch(err) {
+		alert("Unrecognised spacing \"" + err + "\" - Using default spacing of 4");
+		spaces = 4;
+	}
+		
+	// Create a string of the spacing to use
+	for(var i = 0; i < spaces; i++) {
+		tabSpaces += indentCharacter; 
+	}
+	
+	var documentArray;
+	try {
+		documentArray = getChunks();
+	} catch(err) {
+		alert(err);
+		return;
+	}
+	
+	var formattedArray = new Array();
+	
+	for(var j = 0; j < documentArray.length; j++) {
+		// remove all new lines
+		text = documentArray[j].replace(new RegExp( "\\n", "g" ), "");
+		// old format /\r\n/gi;
+		var storeArray = new Array();
+		
+		// Store each node in an array element
+		process(text, storeArray);
+		
+		// format the lined array producing the formatted string that will be output.
+		var formattedContent = format(storeArray);
+
+		formattedArray.push(formattedContent);
+	}
+	
+	// clear the selected text
+	document.selection.Text = "";
+
+	// loop through the formatted values and inject them into the page
+	for(var k = 0; k < formattedArray.length; k++) {
+		document.write(formattedArray[k]);
+	}
+	
+	status = "Formatting Complete";
+}
+
+/* The number of characters give or take that will be stored in each chunk to be formatted */
+var chunkSize = 5000;
+
+/*
+* Store the whole selected document in an array
+*/
+function getChunks() {
+	
+	// Get the whole selected text
+	var selectedText = document.selection.Text;
+	
+	// Check that there is some xml tags selected
+	if(selectedText.search("[<]{1}[^]*[>]{1}") == -1) {
+		throw "Unable to find XML";
+	}
+
+	var documentArray = new Array();
+	
+	// Disect the string and then place in an array
+	while(true) {
+		if(selectedText.length > chunkSize) {
+			// Find the next tag so that we may cut of the chunk at a valid point
+			var endLength = selectedText.substring(chunkSize, selectedText.length).search("[<]{1}[^]*[>]{1}");
+			
+			// Get the text for this chunk
+			var tempText = selectedText.substring(0, chunkSize + endLength);
+			
+			// Get last comment tag if any
+			var startCommentTag = tempText.lastIndexOf("<!--");
+			var endCommentTag = tempText.lastIndexOf("-->");
+			var nextEndComment = 0;
+			// we have cut the chunk of half way through a comment
+			if(startCommentTag != -1 && startCommentTag > endCommentTag) {
+				nextEndComment = selectedText.substring(chunkSize + endLength, selectedText.lenght).indexOf("-->");
+				// Get the text for this chunk
+				tempText = selectedText.substring(0, chunkSize + endLength + nextEndComment + 4);
+			}
+			
+			// Add the raw text onto the array
+			documentArray.push(tempText);
+			// substring the String, so that it continue where the last chunk was taken from
+			selectedText = selectedText.substring(chunkSize + endLength + (nextEndComment == 0 ? 0 : nextEndComment + 4), selectedText.length);
+		} else {
+			// Add the last bit onto the array
+			documentArray.push(selectedText);
+			break;
+		}
+	}
+	
+	return documentArray;
+}
+
+/*
+* Recursive method that processed the raw xml chunk with the new lines having been removes.
+*/
+function process(theText, storeArray) {
+	var commentStartTag = theText.indexOf("<!--");
+	var commentEndTag = theText.indexOf("-->");
+	
+	var startTag = theText.indexOf("<");
+	var endTag = theText.indexOf(">");
+	
+	// If a comment tag is used then find the end
+	if(commentStartTag != -1 && commentStartTag <= startTag && commentEndTag > commentStartTag) {
+		var subString = theText.substring(commentStartTag, commentEndTag + 4);
+		if(commentStartTag > 0) {
+			var text = theText.substring(0, commentStartTag);
+			// Remove white space surrounding the text tha may exist before the start tag
+			text = text.replace(/^\s+|\s+$/g,"");
+			if(text != "") {
+				// Add the text
+				storeArray.push(text);
+			}
+		}
+		// Add the node
+		storeArray.push(subString);
+		// Get the next section of the string
+		var nextText = theText.substring(commentEndTag + 4, theText.length);
+		// Recursive call to find the next tag
+		process(nextText, storeArray);	
+	}
+	// If we find a valid start and end position
+	else if(endTag > startTag) {
+		var subString = theText.substring(startTag, endTag + 1);
+		
+		// Add text if before start tag
+		if(startTag > 0) {
+			var text = theText.substring(0, startTag);
+			// Remove white space surrounding the text tha may exist before the start tag
+			text = text.replace(/^\s+|\s+$/g,"");
+			if(text != "") {
+				// Add the text
+				storeArray.push(text);
+			}
+		}
+		
+		// Add the node
+		storeArray.push(subString);
+		// Get the next section of the string
+		var nextText = theText.substring(endTag + 1, theText.length);
+		// Recursive call to find the next tag
+		process(nextText, storeArray);
+	}
+	// If we have hit the end and there is still text then add the final text
+	else if(startTag == -1 && endTag == -1 && theText.length != 0) {
+		var text = theText.replace(/^\s+|\s+$/g,"");
+		if(text != "") {
+			// Add the text
+			storeArray.push(text);
+		}
+		process("", storeArray);
+	}
+	else {
+		// We have hit the end so return
+		return;
+	}	
+
+}
+
+/* A stack array that will hold the start tag node to help find the closing node and indentations */
+var stack = new Array();
+
+/*
+* An object that will hold the tag name without surrounding < >, and the current indentation use for that node
+*/
+function tagNode(value, indent) {
+	this.value = value;
+	this.indent = indent;
+}
+
+/*
+* Get the name of the node
+*/
+function tagNode.prototype.getValue() {
+	return this.value;
+}
+
+/*
+* Get the indent for the node
+*/
+function tagNode.prototype.getIndent() {
+	return this.indent;
+}
+
+/**
+* Strip the string and just find the tag name
+* If the value does not have a tag syntax then it must be text, a comment or an xml defenition
+*/
+function getTagName(value) {
+	var startPos = value.indexOf("<");
+	var endPos = value.indexOf(">");
+	var oneLiner = value.indexOf("/>");
+	var endTag = value.indexOf("</");
+	var xmlDefTag = value.indexOf("<?xml");
+	var comment = value.indexOf("<!--");
+	
+	// Found a open or close tag, ignore text, oneLiner, xml defs and comments
+	if(startPos != -1 && endPos != -1 && oneLiner == -1 && xmlDefTag == -1 && comment == -1) {
+		var theText;
+		// found and end tag node
+		if(endTag != -1) {
+			theText = value.substring(startPos + 2, endPos);
+		} else {
+			theText = value.substring(startPos + 1, endPos);
+		}
+		var sep = theText.indexOf(" ");
+		if(sep != -1) {
+			return theText.substring(0, sep);
+		}
+		return theText;
+	}
+	// return undefined to signify that this is just text
+	return undefined;
+}
+
+/*
+* Format the document using the provided list of nodes and stripped text values
+*/
+function format(storeArray) {
+	
+	var formattedDoc = "";
+	
+	// Loop through each line
+	for(var i = 0; i < storeArray.length; i++) {
+		var value = storeArray[i];
+		
+		var tagName = getTagName(value);
+		
+		// ---- textOneLiner Section
+		// Section used to display text inside nodes on a single line with surrounding node; this is only used if textOneLiner option is set to true.
+		var newLine = "\n";
+		var isTextPrevious = false;
+		var isText = false;
+		
+		// If the textOneLiner option is set to true
+		if(textOneLiner == true) {
+			// Set to true if is a text node
+			isText = (tagName == undefined && value.indexOf("/>") == -1 && value.indexOf("<?xml") == -1 && value.indexOf("<!--") == -1);			
+			
+			// Get the next tag
+			if((i+1) < storeArray.length) {
+				// If the next text node is a text node then display on one line
+				if(getTagName(storeArray[i+1]) == undefined && storeArray[i+1].indexOf("/>") == -1 && storeArray[i+1].indexOf("<?xml") == -1 && storeArray[i+1].indexOf("<!--") == -1) {
+					newLine = "";
+				}
+			}
+			// Check the previous node
+			if((i-1) > 0) {
+				// If previous element is text
+				isTextPrevious = (getTagName(storeArray[i-1]) == undefined && storeArray[i-1].indexOf("/>") == -1 && storeArray[i-1].indexOf("<?xml") == -1 && storeArray[i-1].indexOf("<!--") == -1);	
+			}
+		}
+		// ---- End textOneLiner Section
+		
+		if(tagName != undefined) {
+			if(stack.length > 0) {
+				// Get the last node on the stack and check the name
+				// If the name matched then we have an end tag
+				var lastNode = stack[stack.length -1];
+				if(lastNode.getValue() == tagName) {
+					// found an end tag so remove the node from the stack
+					lastNode = stack.pop();
+					tabs = lastNode.getIndent();
+					// Add the line
+					formattedDoc += ((isTextPrevious == true ? "" : tabs) + storeArray[i] + newLine);
+				} else {
+					// If it is a new start tag then add to the stack.
+					stack.push(new tagNode(tagName, tabs));
+					// Add the line
+					formattedDoc += (tabs + storeArray[i] + newLine);
+					tabs += tabSpaces;
+				}
+			} else {
+				if(value.indexOf("<?xml") == 0 || value.indexOf("<!--") == 0) {
+					// do nothig as is xml def or comment
+				} else {
+					// If it is a new start tag then add to the stack.
+					stack.push(new tagNode(tagName, tabs));
+					formattedDoc += (tabs + storeArray[i] + newLine);
+					tabs += tabSpaces;
+				}
+			}
+		} else {
+			formattedDoc += ((isText == true ? "" : tabs)  + storeArray[i] + (isText == true ? "" : "\n"));
+		}	
+	}
+	
+	return formattedDoc;
+}
+
+// Called when the macro is run
+formatDocument();
