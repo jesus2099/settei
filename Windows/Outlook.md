@@ -38,4 +38,4 @@ Vrais messages envoyés
   - Éléments envoyés
 - Options avancées
   - Classe du message  ne contient pas  IPM.Schedule.Meeting
-  - Message            ne contient pas  reacted to your message
+  - Message            ne contient pas  "reacted to your message"
