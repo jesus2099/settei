@@ -73,7 +73,8 @@ goto !_location!
 
 :office
 
-call "%~dp0\start-office-apps.bat"
+set _need_office_apps=1
+date /t >"%~dp0_reachable-flag"
 goto online
 
 :home
@@ -84,7 +85,7 @@ start "Caffeine" "%LocalAppData%\Programs\_\caffeine64.exe" -stes -onac -notwhen
 :online
 
 if !_location! equ office (
-	set _vpn=1
+	set _need_office_apps=1
 ) else (
 	echo.
 	echo   같    같 같같같  같�    같     같같같  
@@ -100,14 +101,6 @@ if !_location! equ office (
 
 		if !_vpn! equ 1 (
 			date /t >"%~dp0_reachable-flag"
-			query process | find /i "ms-teams.exe" >nul
-			if !errorlevel! equ 1 (
-				echo Starting Teams...
-				rem find app ID by exploring shell:AppsFolder and create shortcut
-				start shell:AppsFolder\MSTeams_8wekyb3d8bbwe^^!MSTeams
-			) else (
-				echo Teams is running
-			)
 		)
 
 		echo Starting PingID...
@@ -131,7 +124,7 @@ if !_location! equ office (
 			)
 			wevtutil qe /rd:true /f:text /q:"Event[System[Provider[@Name='IVE']][EventID=312][TimeCreated[@SystemTime ^>= '!_wait_start_ts!']]]" "Pulse Secure/Operational"|find "was established successfully to https://"
 			if !errorlevel! equ 0 (
-				call "%~dp0\start-office-apps.bat"
+				set _need_office_apps=1
 				goto stop_wait_for_vpn
 			) else (
 				timeout /t !_vpn_wait_check_delay_s! >nul
@@ -141,6 +134,10 @@ if !_location! equ office (
 			rem no empty line after label
 		)
 	)
+)
+
+if !_need_office_apps! equ 1 (
+	call "%~dp0\start-office-apps.bat"
 )
 
 goto end

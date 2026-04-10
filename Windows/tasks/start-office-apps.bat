@@ -53,6 +53,16 @@ if not exist "%~dp0_vpn-flag" (
 		echo Intranex is running
 	)
 	if exist "%~dp0_reachable-flag" (
+
+		query process | find /i "ms-teams.exe" >nul
+		if !errorlevel! equ 1 (
+			echo Starting Teams...
+			rem find app ID by exploring shell:AppsFolder and create shortcut
+			start shell:AppsFolder\MSTeams_8wekyb3d8bbwe^^!MSTeams
+		) else (
+			echo Teams is running
+		)
+
 		query process | find /i "opentouchcon..." >nul
 		if !errorlevel! equ 1 (
 			echo Starting OpenTouch Conversation...
