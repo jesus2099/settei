@@ -84,9 +84,24 @@ start "Caffeine" "%LocalAppData%\Programs\_\caffeine64.exe" -stes -onac -notwhen
 
 :online
 
+
 if !_location! equ office (
 	set _need_office_apps=1
 ) else (
+	set _conn_choice_default=y
+	set _conn_choice_time=10
+	set "_conn_choice_text=[Yes] / No / Connected"
+	for /f %%c in ('powershell -noprofile -command "[System.Console]::CapsLock"') do set "_capslock=%%c"
+	for /f %%n in ('powershell -noprofile -command "[System.Console]::NumberLock"') do set "_numlock=%%n"
+	if /i !_capslock! == True (
+	    echo Caps Lock is ON: Default on not reachable
+	    set _conn_choice_default=c
+	    set "_conn_choice_text=Yes / No / [Connected]"
+		if /i !_numlock! == True (
+		    echo Num Lock is ON: Speed up connection
+		    set _conn_choice_time=2
+		)
+	)
 	echo.
 	echo   °°    °° °°°°°°  °°°    °°     °°°°°°  
 	echo   ±±    ±± ±±   ±± ±±±±   ±±          ±± 
@@ -94,7 +109,7 @@ if !_location! equ office (
 	echo    ²²  ²²  ²²      ²²  ²² ²²       ßß    
 	echo     ÛÛÛÛ   ÛÛ      ÛÛ   ÛÛÛÛ       ÛÛ    
 	echo.
-	choice /c ync /n /d y /t 10 /m "[Yes] / No / Connected but not reachable"
+	choice /c ync /n /d !_conn_choice_default! /t !_conn_choice_time! /m "!_conn_choice_text! but not reachable"
 	set _vpn=!errorlevel!
 
 	if !_vpn! neq 2 (
@@ -107,6 +122,46 @@ if !_location! equ office (
 		start "PingID" "%ProgramFiles(x86)%\Ping Identity\PingID\PingID.exe"
 		echo Starting Pulse Secure...
 		start "Pulse Secure" "%ProgramFiles(x86)%\Common Files\Pulse Secure\JamUI\Pulse.exe" -show
+
+		where nircmd >nul 2>nul && where timeout >nul 2>nul
+		if !errorlevel! equ 0 (
+			set /p "=Waiting for PingID.." <nul
+			set _pingid_max_retry=60
+			:wait_for_pingid
+			set /a "_pingid_max_retry-=1"
+			set /p "=." <nul
+			if !_pingid_max_retry! leq 0 (
+				echo.
+				goto stop_wait_for_pingid
+			)
+			for /f "tokens=1 delims=," %%a in ('tasklist /fo csv /nh /fi "WindowTitle eq PingID"') do (
+				if "%%~a" == "PingID.exe" (
+					set _pingid_found=1
+					echo.
+					echo PingID always on top...
+					rem nircmd cmdwait 1000 win settopmost process PingID.exe 1
+					rem nircmd cmdwait 500 win trans process PingID.exe 200
+					rem nircmd cmdwait 500 win flash process PingID.exe 5
+					rem nircmd cmdwait 500 win activate process PingID.exe
+					rem nircmd cmdwait 1000 sendkey 0x09 press
+					rem nircmd cmdwait 200 sendkey 0x09 press
+					nircmd win settopmost process PingID.exe 1
+					nircmd win trans process PingID.exe 200
+					nircmd win flash process PingID.exe 5
+					nircmd win activate process PingID.exe
+					nircmd sendkey 0x09 press
+					nircmd sendkey 0x09 press
+					goto stop_wait_for_pingid
+				) else (
+					timeout /t 1 >nul
+					goto wait_for_pingid
+				)
+			)
+			if !_pingid_found neq 1 goto wait_for_pingid
+			:stop_wait_for_pingid
+			rem no empty line after label
+		)
+
 		where wevtutil >nul 2>nul && where timeout >nul 2>nul && where powershell >nul 2>nul
 		if !errorlevel! equ 0 (
 			set _vpn_wait_time_min=30
