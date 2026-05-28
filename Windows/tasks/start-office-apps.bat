@@ -84,7 +84,7 @@ if not exist "%~dp0_vpn-flag" (
 					set _opentouch_found=1
 					set _opentouch_cpu_time=%%~b
 					set _opentouch_cpu_time=!_opentouch_cpu_time::=!
-					if !_opentouch_cpu_time! geq 8 (
+					if !_opentouch_cpu_time! geq 9 (
 						echo.
 						echo Hide OpenTouch Conversation...
 						nircmd win close stitle "OpenTouch Conversation"
