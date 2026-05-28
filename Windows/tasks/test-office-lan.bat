@@ -88,6 +88,12 @@ start "Caffeine" "%LocalAppData%\Programs\_\caffeine64.exe" -stes -onac -notwhen
 if !_location! equ office (
 	set _need_office_apps=1
 ) else (
+	echo  .---------------------------------------.
+	echo  ^| Key ^|   CapsLock    ^|     NumLock     ^|
+	echo  ^|-----^|---------------^|-----------------^|
+	echo  ^| OFF ^| Reachable     ^| Wait for choice ^|
+	echo  ^| ON  ^| Not reachable ^| No wait         ^|
+	echo  '---------------------------------------'
 	set _conn_choice_default=y
 	set _conn_choice_time=10
 	set "_conn_choice_text=[Yes] / No / Connected"
@@ -139,12 +145,6 @@ if !_location! equ office (
 					set _pingid_found=1
 					echo.
 					echo PingID always on top...
-					rem nircmd cmdwait 1000 win settopmost process PingID.exe 1
-					rem nircmd cmdwait 500 win trans process PingID.exe 200
-					rem nircmd cmdwait 500 win flash process PingID.exe 5
-					rem nircmd cmdwait 500 win activate process PingID.exe
-					rem nircmd cmdwait 1000 sendkey 0x09 press
-					rem nircmd cmdwait 200 sendkey 0x09 press
 					nircmd win settopmost process PingID.exe 1
 					nircmd win trans process PingID.exe 200
 					nircmd win flash process PingID.exe 5
