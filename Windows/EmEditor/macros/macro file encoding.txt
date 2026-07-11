@@ -1,0 +1,8 @@
+FIX: Convert to UTF-8 with Signature
+
+Standard EmEditor macro.jsee files are UTF-16LE with Signature
+But it accepts UTF-8 with Signature
+Git corrupts UTF-16 files (#2)
+
+※ Signature = byte order mark = BOM
+  Without it, EmEditor corrupts the macro
