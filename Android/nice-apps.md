@@ -15,7 +15,7 @@ Nice Apps
 - [Stellanova ワイヤレスハイレゾプレーヤー](https://play.google.com/store/apps/details?id=jp.pioneer.itp.android.stellanovaplayer)
 - [Synology DS file](https://play.google.com/store/apps/details?id=com.synology.DSfile)
 - [Tuner](https://play.google.com/store/apps/details?id=de.moekadu.tuner)
-- [VOEZ](https://play.google.com/store/apps/details?id=com.rayark.valkyrie)
+- [VOEZ](https://play.google.com/store/apps/details?id=com.rayark.valkyrie) (Calibration: direct +100 ms / BT +650 ms)
 - [VoiceTra](https://play.google.com/store/apps/details?id=jp.go.nict.voicetra)
 - [Yuka](https://play.google.com/store/apps/details?id=io.yuka.android)
 - [ZXing Barcode Scanner](https://github.com/zxing/zxing/releases/tag/BS-4.7.8 "com.google.zxing.client.android")
