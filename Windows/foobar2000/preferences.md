@@ -36,5 +36,8 @@ o         | ctrl+alt   | no     | main    | File / Add folder…
 f         | shift+ctrl | no     | context | Tagging / Attach pictures / Front cover
 b         | shift+ctrl | no     | context | Tagging / Attach pictures / Back cover
 enter     | alt        | no     | context | Properties
+Y         | Ctrl       | no     | [main]  | View / Show now playing in playlist
+M         | Shift+Ctrl | no     | [context] | Run service / MusicBrainz '('release')'
+E         | Shift+Ctrl | no     | [context] | Run service / Select File in Explorer
 
 ¹ ctrl+alt == alt gr
