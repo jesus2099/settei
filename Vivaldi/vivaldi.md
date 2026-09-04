@@ -44,7 +44,7 @@ Searches
 - mercari (culture): me https://jp.mercari.com/search?keyword=%s&t1_category_id=5&category_id=5
 - mercari (video): mev https://jp.mercari.com/search?keyword=%s&t1_category_id=5&category_id=74
 - minc (ISRC): mi https://www.minc.gr.jp/db/GakInfo.aspx?ISRCCD=%s
-- minc (catalogue): mc https://search.minc.or.jp/product/list/?dn=%s&type=search-form-diskno
+- minc (catalogue): mc https://www.minc.or.jp/product/list/?dn=%s&type=search-form-diskno
 - ヤフオク (geoblocked, use yahuoku_REDIRECT-TO-BUYEE.user.js): yo https://duckduckgo.com/?q=%s+site%3Aauctions.yahoo.co.jp%2Fjp%2Fauction%2F&kp=1&t=vivaldi&iax=images&ia=images
 - 歌詞: kasi https://duckduckgo.com/?q=%E6%AD%8C%E8%A9%9E+%s&t=vivaldi&ia=web
 
