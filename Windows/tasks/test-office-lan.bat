@@ -3,6 +3,7 @@ setlocal EnableDelayedExpansion
 
 del "%~dp0_vpn-flag" 2>nul
 del "%~dp0_reachable-flag" 2>nul
+del "%~dp0_office-flag" 2>nul
 
 (
 	echo.
@@ -75,6 +76,7 @@ goto !_location!
 
 set _need_office_apps=1
 date /t >"%~dp0_reachable-flag"
+date /t >"%~dp0_office-flag"
 goto online
 
 :home

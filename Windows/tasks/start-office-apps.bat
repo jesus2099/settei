@@ -16,22 +16,24 @@ if not exist "%~dp0_vpn-flag" (
 		echo Intranex is running
 	)
 
-	query process | find /i "vivaldi.exe" >nul
-	if !errorlevel! equ 1 (
-		for %%V in (
-			"%LocalAppData%\Vivaldi\Application\vivaldi.exe"
-			"%LocalAppData%\Programs\Vivaldi\Application\vivaldi.exe"
-		) do if exist %%V (
-			echo Starting Vivaldi...
-			start "Vivaldi" %%V
-			goto :vivaldi_found
+	if not exist "%~dp0_office-flag" (
+		query process | find /i "vivaldi.exe" >nul
+		if !errorlevel! equ 1 (
+			for %%V in (
+				"%LocalAppData%\Vivaldi\Application\vivaldi.exe"
+				"%LocalAppData%\Programs\Vivaldi\Application\vivaldi.exe"
+			) do if exist %%V (
+				echo Starting Vivaldi...
+				start "Vivaldi" %%V
+				goto :vivaldi_found
+			)
+			echo Vivaldi not found
+		) else (
+			echo Vivaldi is running
 		)
-		echo Vivaldi not found
-	) else (
-		echo Vivaldi is running
+		:vivaldi_found
+		rem no empty line after label
 	)
-	:vivaldi_found
-	rem no empty line after label
 
 	query process | find /i "outlook.exe" >nul
 	if !errorlevel! equ 1 (
