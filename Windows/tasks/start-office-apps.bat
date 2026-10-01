@@ -16,7 +16,23 @@ if not exist "%~dp0_vpn-flag" (
 		echo Intranex is running
 	)
 
-	if not exist "%~dp0_office-flag" (
+	if exist "%~dp0_office-flag" (
+		query process | find /i "chrome.exe" >nul
+		if !errorlevel! equ 1 (
+			for %%C in (
+				"C:\Program Files\Google\Chrome\Application\chrome.exe"
+			) do if exist %%C (
+				echo Restoring Last Chrome Session...
+				start "Last Chrome Session" %%C --restore-last-session
+				goto :chrome_found
+			)
+			echo Chrome not found
+		) else (
+			echo Chrome is running
+		)
+		:chrome_found
+		rem no empty line after label
+	) else (
 		query process | find /i "vivaldi.exe" >nul
 		if !errorlevel! equ 1 (
 			for %%V in (
