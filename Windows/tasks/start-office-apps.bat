@@ -24,14 +24,14 @@ if not exist "%~dp0_vpn-flag" (
 			) do if exist %%C (
 				echo Restoring Last Chrome Session...
 				start "Last Chrome Session" %%C --restore-last-session
-				goto :chrome_found
+				rem goto breaks all nested parenthesis logics
+				rem so need to goto out of all of them
+				goto chrome_found
 			)
 			echo Chrome not found
 		) else (
 			echo Chrome is running
 		)
-		:chrome_found
-		rem no empty line after label
 	) else (
 		query process | find /i "vivaldi.exe" >nul
 		if !errorlevel! equ 1 (
@@ -41,15 +41,15 @@ if not exist "%~dp0_vpn-flag" (
 			) do if exist %%V (
 				echo Starting Vivaldi...
 				start "Vivaldi" %%V
-				goto :vivaldi_found
+				goto vivaldi_found
 			)
 			echo Vivaldi not found
 		) else (
 			echo Vivaldi is running
 		)
-		:vivaldi_found
-		rem no empty line after label
 	)
+	:chrome_found
+	:vivaldi_found
 
 	query process | find /i "outlook.exe" >nul
 	if !errorlevel! equ 1 (
@@ -59,7 +59,7 @@ if not exist "%~dp0_vpn-flag" (
 		) do if exist %%O (
 			echo Starting Outlook...
 			start "Outlook ^(restore^)" %%O /restore
-			goto :outlook_found
+			goto outlook_found
 		)
 		echo Outlook not found
 	) else (
