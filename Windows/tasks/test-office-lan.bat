@@ -148,11 +148,10 @@ if !_location! equ office (
 					echo.
 					echo PingID always on top...
 					nircmd win settopmost process PingID.exe 1
-					nircmd win trans process PingID.exe 200
-					nircmd win flash process PingID.exe 5
 					nircmd win activate process PingID.exe
 					nircmd sendkey 0x09 press
 					nircmd sendkey 0x09 press
+					nircmd win trans process PingID.exe 200
 					goto stop_wait_for_pingid
 				) else (
 					timeout /t 1 >nul
